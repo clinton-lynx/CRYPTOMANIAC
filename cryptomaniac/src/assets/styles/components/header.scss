@@ -1,0 +1,143 @@
+@import '../main';
+
+
+
+
+
+
+
+.header{
+    background-color:$dark-blue;
+    position: sticky;
+    top: 0px;
+    z-index: 1100;
+    color:#fff;
+}
+.nav-logo h1{
+    font-size: 1.65rem;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+.nav-wrapper{
+    @include flex-row-between-nowrap;
+    height:3.5rem;
+    padding-inline-start: 40px; 
+    padding-inline-end: 40px;
+    max-width:1444px;
+    margin:0 auto;
+}
+
+.nav-left{
+    @include flex-row-between-nowrap;
+    align-items: baseline;
+    
+}
+.market-details-list-item-wrapper{
+    margin-right: 1rem;
+     a{
+    color:#A0A9BE;
+    font-size: .75rem;
+    text-transform: capitalize;
+    .coins-figure{
+        color:#fff;
+        font-size: .875rem;
+    }
+}
+}
+
+
+.market-details-list{
+
+    @include flex-row-between-nowrap;
+}
+
+.nav-right{
+
+    @include flex-row-between-nowrap;
+}
+    
+    .market-details{
+        margin-left: 1.5rem;
+        @include breakpoint-down(1280px){
+            display:none;
+        }
+    }
+
+    .nav-right__form-wrapper{
+        margin-right: 1rem;
+        @include breakpoint-down(1280px){
+            display:none;
+        }
+            .form{
+                @include  flex-row-between-nowrap;
+                background:rgba(17, 153, 250, 0.1);
+                // padding: .2rem .9rem;
+                // padding: .2rem 0 .2rem .9rem;
+                padding-left: .75rem;
+                border-radius: 4px;
+                border:1px solid #D6D6D6;
+                // margin:1rem 0;
+                .input-text{
+                    background: transparent;
+                    border:none;
+                    width:80%;
+                    font-size: 1rem;
+                    color:#fff;
+                    padding:.475rem .215rem;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                .plus{
+                    background-color: #A0A9BE;
+                    width: 15%;
+                    padding:.475rem .215rem;
+                    // padding-top: .2rem;
+                    text-align: center;
+                    border-radius: 20%;
+                    color:#fff;
+                    font-size: 1rem;
+                }
+            
+            
+        }
+    }
+
+    .nav-right__btn-wrapper{
+        .nav-right__suscribe{
+            display: inline-flex;
+            appearance: none;
+     
+            align-items: center;
+         
+            justify-content: center;
+            user-select: none;
+            position: relative;
+            white-space: nowrap;
+            vertical-align: middle;
+            outline: transparent solid 2px;
+            outline-offset: 2px;
+            line-height: 1.2;
+            border-radius:.375rem;
+            font-weight:600;
+            transition-property:all;
+            transition-duration:20ms;
+            height: 2.45rem;
+            min-width: 2rem;
+            font-size: .875rem;
+            padding-inline-start: .75rem;
+            padding-inline-end: .75rem;
+
+            background:$light-blue;
+            color: #fff;
+            text-transform: capitalize;
+            width: 100%;
+        }
+    }
+
+    .nav-right__theme-toogle{
+        margin-left: 15px;
+        @include breakpoint-down(1280px){
+            display:none;
+        }
+    }

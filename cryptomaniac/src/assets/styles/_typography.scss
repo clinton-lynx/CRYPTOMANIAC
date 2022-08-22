@@ -1,0 +1,223 @@
+
+
+
+@font-face {
+  font-family: 'Poppings';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/poppins-medium.yji-dc16a3592fdb61b620cc.woff2') format('truetype');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Poppings';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/BasisGrotesque-Light.woff2') format('woff2');
+  font-display: block;
+}
+
+
+@font-face {
+  font-family: 'Basis Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/BasisGrotesque-Light.eot');
+  src: url('../fonts/BasisGrotesque-Light.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Light.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Light.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Light.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Light.svg#BasisGrotesque-Light')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/BasisGrotesque-Regular.eot');
+  src: url('../fonts/BasisGrotesque-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Regular.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Regular.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Regular.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Regular.svg#BasisGrotesque-Regular')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque';
+  font-style: italic;
+  font-weight: normal;
+  src: url('../fonts/BasisGrotesque-Italic.eot');
+  src: url('../fonts/BasisGrotesque-Italic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Italic.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Italic.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Italic.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Italic.svg#BasisGrotesque-Italic')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/BasisGrotesque-Medium.eot');
+  src: url('../fonts/BasisGrotesque-Medium.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Medium.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Medium.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Medium.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Medium.svg#BasisGrotesque-Medium')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/BasisGrotesque-Bold.eot');
+  src: url('../fonts/BasisGrotesque-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Bold.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Bold.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Bold.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Bold.svg#BasisGrotesque-Bold')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/BasisGrotesque-Black.eot');
+  src: url('../fonts/BasisGrotesque-Black.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Black.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Black.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Black.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Black.svg#BasisGrotesque-Black')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Mono';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/BasisGrotesque-Mono.eot');
+  src: url('../fonts/BasisGrotesque-Mono.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-Mono.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-Mono.woff') format('woff'),
+    url('../fonts/BasisGrotesque-Mono.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-Mono.svg#BasisGrotesque-Mono')
+      format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Mono';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/BasisGrotesque-MonoBold.eot');
+  src: url('../fonts/BasisGrotesque-MonoBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/BasisGrotesque-MonoBold.woff2') format('woff2'),
+    url('../fonts/BasisGrotesque-MonoBold.woff') format('woff'),
+    url('../fonts/BasisGrotesque-MonoBold.ttf') format('truetype'),
+    url('../fonts/BasisGrotesque-MonoBold.svg#BasisGrotesque-MonoBold')
+      format('svg');
+  font-display: swap;
+}
+
+// -Circle---------->
+
+@font-face {
+  font-family: 'Circular-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2');
+  src: url('../fonts/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2') format('woff2');
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Airbnb_Cereal-Medium-50fc004b3082375f12ff0cfb67bf8e56.woff2');
+  src: url('../fonts/Airbnb_Cereal-Medium-50fc004b3082375f12ff0cfb67bf8e56.woff2')
+    format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2');
+  src: url('../fonts/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Airbnb_Cereal-Book-9a1c9cca9bb3d65fefa2aa487617805e.woff2');
+  src: url('../fonts/Airbnb_Cereal-Book-9a1c9cca9bb3d65fefa2aa487617805e.woff2')
+    format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Airbnb_Cereal-Bold-bdfb98485e7836ba31b456f65cded088.woff2');
+  src: url('../fonts/Airbnb_Cereal-Bold-bdfb98485e7836ba31b456f65cded088.woff2')
+    format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/AirbnbCereal_W_Lt.woff');
+  src: url('../fonts/AirbnbCereal_W_Lt.woff')
+    format('woff2');
+  font-display: swap;
+}
+
+
+// 
+
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2');
+  src: url('../fonts/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2')
+    format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/AirbnbCereal_W_XBd.woff');
+  src: url('../fonts/AirbnbCereal_W_XBd.woff')
+    format('woff2');
+  font-display: swap;
+}
