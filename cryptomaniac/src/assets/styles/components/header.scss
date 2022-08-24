@@ -19,8 +19,9 @@
     text-transform: capitalize;
 }
 .nav-wrapper{
-    @include flex-row-between-nowrap;
+    @include flex-row-between-nowrap; 
     height:3.5rem;
+    padding-inline-start: 40px; 
     padding-inline-start: 40px; 
     padding-inline-end: 40px;
     max-width:1444px;
@@ -88,8 +89,8 @@
                         outline: none;
                     }
                 }
-                .plus{
-                    background-color: #A0A9BE;
+                .search{
+                    background-color:transparent;
                     width: 15%;
                     padding:.475rem .215rem;
                     // padding-top: .2rem;
@@ -137,7 +138,88 @@
 
     .nav-right__theme-toogle{
         margin-left: 15px;
+        margin-right: 10px;
+        border-radius: 4px;
+        padding:.875rem .75rem ;
+        background:transparent;
+        &:hover{
+            background:rgba(255, 255,255,0.16)
+        }
         @include breakpoint-down(1280px){
             display:none;
+        }
+    }
+      .nav-right__menu-wrapper{
+        margin-left: 15px;
+         margin-left: 15px;
+        margin-right: 10px;
+        border-radius: 4px;
+        padding:.875rem .75rem ;
+        background:transparent;
+        &:hover{
+            background:rgba(255, 255,255,0.16)
+        }
+        @include breakpoint-up(1280px){
+            display:none;
+        }
+
+    }
+
+    .nav-right__search-icon-wrapper{
+        margin-left: 15px;
+         margin-left: 15px;
+        margin-right: 10px;
+        border-radius: 4px;
+        padding:.875rem .75rem ;
+        background:transparent;
+        &:hover{
+            background:rgba(255, 255,255,0.16)
+        }
+        @include breakpoint-up(1280px){
+            display:none;
+        }
+
+    }
+hr{
+    opacity: 0.6;
+    border: 0;
+    border-color: inherit;
+    border-style: solid;
+    border-bottom-width: 1px;
+    width: 100%;
+}
+
+    .header-filters{
+    @include flex-row-start-nowrap;
+    height:25px;
+    max-width:1444px;
+    padding:1.875rem 3rem;
+    margin: 0 auto;
+    .vertical{
+        opacity: 0.6;
+        border: 0;
+        border-color: inherit;
+        border-style: solid;
+        border-left-width: 1px;
+        height: 30px;
+        // display: none;
+        width:1px;
+        margin: 0 1rem;
+    }
+    .horizontal{
+        opacity: 0.6;
+        border: 0;
+        border-color: inherit;
+        border-style: solid;
+        border-bottom-width: 1px;
+        width: 100%;
+    }
+    .dropdown{
+        vertical-align: middle;
+    }
+        .current-filter{
+            // width: 75px;
+            cursor: pointer;
+            color: #fff;
         }
     }

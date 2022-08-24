@@ -1,0 +1,167 @@
+@import '../main';
+
+footer.main-footer {
+    background: #0B1426;
+    padding-bottom: 0px;
+    color: white;
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin: 0rem auto;
+      max-width: 1444px;
+      padding: 3.5rem 1rem;
+      .top-left {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        .footer-list-items {
+          width: 60%;
+          margin: 0 1%;
+          @include breakpoint-down(744px) {
+            width: 48%;
+            margin-top: 2rem;
+          }
+          @include breakpoint-down(375px) {
+            width: 98%;
+            margin-top: 2rem;
+          }
+        }
+        li {
+          list-style: none;
+          &.list-item-header {
+            font-weight: 600;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            // color: $white;
+            margin-bottom: 2rem;
+          }
+          &.list-item {
+            margin-bottom: 1rem;
+          }
+        }
+        @include breakpoint-custom-down(650) {
+          flex-wrap: wrap;
+        }
+      }
+      .top-right {
+        width: 100%;
+        .newsletter-head {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+        //   color: $white;
+          margin-bottom: 2rem;
+        }
+        .input-btn {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          input {
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 12px;
+            border-radius: 4px 0px 0px 4px;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            // color: $inactive-text;
+          }
+          button {
+            color: white;
+            border: none;
+            outline: none;
+            background:#1199FA;
+            border-radius: 0px 4px 4px 0px;
+            padding: 12px 2rem;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            @include breakpoint-custom-down(440) {
+              padding: 12px;
+            }
+          }
+        }
+        .app-store-btns {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          margin-top: 2rem;
+          button.app-btn {
+            border: none;
+            outline: none;
+            background: transparent;
+            height: 2.75rem;
+            .store-logo {
+              width: inherit;
+              height: inherit;
+            }
+            &.playstore {
+              margin-left: 1rem;
+              @include breakpoint-custom-down(440) {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 1rem;
+                img {
+                  width: inherit;
+                  height: inherit;
+                }
+              }
+            }
+          }
+          @include breakpoint-custom-down(440) {
+            flex-direction: column;
+          }
+        }
+        @include breakpoint-custom-down(1150) {
+          width: 70%;
+        }
+        @include breakpoint-custom-down(1040) {
+          width: 100%;
+          margin-top: 3rem;
+        }
+      }
+      @include breakpoint-custom-down(1040) {
+        flex-direction: column;
+      }
+    }
+    .bottom-wrapper {
+    //   background: $dark-blue;
+      .footer-bottom {
+        margin: 0 auto;
+        max-width: 1444px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        // color: $white;
+        padding: 1rem 2rem;
+        justify-content: space-between;
+        .bottom-left {
+          .copyright-text {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            display: block;
+            @include breakpoint-custom-down(680) {
+              text-align: center;
+            }
+          }
+        }
+        .bottom-right {
+          display: flex;
+          .social-icon {
+            cursor: pointer;
+            margin-left: 10px;
+          }
+          @include breakpoint-custom-down(680) {
+            margin-top: 1rem;
+          }
+        }
+        @include breakpoint-custom-down(680) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+  

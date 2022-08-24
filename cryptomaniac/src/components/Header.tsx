@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hamburger, LightMode } from '../assets/icons/icons';
+import { DropDown, Hamburger, LightMode, MobileSearch, Search } from '../assets/icons/icons';
 // import {Link} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
 
@@ -24,7 +24,9 @@ const Header = () => {
     <div className='nav-right__form-wrapper'>
         <form action="" className="form">
             <input type="text" className="input-text" />
-            <span className="plus">+</span>
+            <div className="search">
+      <Search />
+    </div>
         </form>
     </div>
     <div className="nav-right__btn-wrapper">
@@ -33,11 +35,22 @@ const Header = () => {
     <div className="nav-right__theme-toogle">
       <LightMode />
     </div>
+     <div className="nav-right__search-icon-wrapper">
+      <MobileSearch />
+    </div>
     <div className="nav-right__menu-wrapper">
       <Hamburger />
     </div>
     </div>
   </div>
+    <hr className='horizontal' />
+    <div className="header-filters">
+      <span className="current-filter">All Coins</span>
+     <hr className='vertical'/>
+      <span className="categories">categories: All coins<span className="dropdown"><DropDown/></span> </span>
+      <hr className='vertical'/>
+    </div>
+    <hr className='horizontal' />
  </header>
   )
 }
