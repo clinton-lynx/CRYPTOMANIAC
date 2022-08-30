@@ -22,10 +22,11 @@ footer.main-footer {
             width: 48%;
             margin-top: 2rem;
           }
-          @include breakpoint-down(375px) {
-            width: 98%;
-            margin-top: 2rem;
-          }
+            @include breakpoint-down(375px) {
+          width: 100%;
+          margin-top: 2rem;
+        }
+        
         }
         li {
           list-style: none;
@@ -35,14 +36,18 @@ footer.main-footer {
             line-height: 1.5rem;
             // color: $white;
             margin-bottom: 2rem;
+            @include breakpoint-down(375px){
+              font-size: 1rem;
+              margin-bottom: .45rem;
+              width: 100%;
+            }
           }
-          &.list-item {
-            margin-bottom: 1rem;
-          }
+         
         }
         @include breakpoint-custom-down(650) {
           flex-wrap: wrap;
         }
+      
       }
       .top-right {
         width: 100%;
@@ -53,6 +58,11 @@ footer.main-footer {
           line-height: 1.5rem;
         //   color: $white;
           margin-bottom: 2rem;
+          @include breakpoint-down(375px){
+            font-size: 1rem;
+            margin-bottom: .45rem;
+          
+          }
         }
         .input-btn {
           display: flex;
@@ -67,6 +77,11 @@ footer.main-footer {
             font-size: 1rem;
             line-height: 1.25rem;
             // color: $inactive-text;
+            @include breakpoint-down(375px){
+              font-size: .875rem;
+            
+            
+            }
           }
           button {
             color: white;
@@ -77,8 +92,11 @@ footer.main-footer {
             padding: 12px 2rem;
             font-size: 1rem;
             line-height: 1.25rem;
-            @include breakpoint-custom-down(440) {
+            @include breakpoint-down(375px){
+              font-size: .875rem;
               padding: 12px;
+              // margin-bottom: .45rem;
+            
             }
           }
         }
@@ -111,6 +129,7 @@ footer.main-footer {
           }
           @include breakpoint-custom-down(440) {
             flex-direction: column;
+         
           }
         }
         @include breakpoint-custom-down(1150) {
@@ -160,8 +179,17 @@ footer.main-footer {
         }
         @include breakpoint-custom-down(680) {
           flex-direction: column;
+          align-items: flex-start;
+          padding: 20px 1rem;
         }
       }
     }
   }
   
+  .about-project{
+    font-size: 1rem;
+    @include breakpoint-down(375px){
+      font-size: .875rem;
+    
+    }
+  }

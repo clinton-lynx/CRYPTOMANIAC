@@ -2,9 +2,11 @@
 
 .crypto-card {
   width: 33.3%;
+  min-width: 270px;
   // max-width: 300px;
   flex: 1 1 300px;
   margin: 0.5% ;
+  z-index: 22222;
   // margin-right: 18px;
   height: 120px;
   @include flex-row-between-nowrap;
@@ -30,6 +32,11 @@
   font-size: 1rem;
   font-weight: 500;
   display: inline;
+  @include breakpoint-down(375px){
+    font-size: .885rem;
+    margin-bottom: .25rem;
+  
+  }
 }
 .crypto-subtitle {
   @extend .crypto-name;
@@ -46,11 +53,16 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--chakra-line-clamp);
+
   --chakra-line-clamp: 1;
+  @include breakpoint-down(375px){
+    font-size: 1rem;
+   
+  }
 }
 .crypto-card__percent {
   color: #00a68c;
+  font-size: .8875rem;
 }
 .crypto-card__chart {
   // align-self: flex-start;
@@ -80,4 +92,7 @@
 
 .crypto-icon-wrapper {
   @include flex-row-between-nowrap;
+  img{
+  width:27px;
+}
 }

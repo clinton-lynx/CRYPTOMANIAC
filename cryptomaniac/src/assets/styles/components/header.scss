@@ -13,10 +13,19 @@
     z-index: 1100;
     color:#fff;
 }
+.nav-logo{
+    @include flex-row-center-wrap;
+}
 .nav-logo h1{
     font-size: 1.65rem;
     font-weight: normal;
     text-transform: capitalize;
+}
+.nav-logo--title{
+    display:inline;
+    @include breakpoint-down(744px){
+        display: none;
+    }
 }
 .nav-wrapper{
     @include flex-row-between-nowrap; 
@@ -26,6 +35,12 @@
     padding-inline-end: 40px;
     max-width:1444px;
     margin:0 auto;
+    @include breakpoint-down(375px){
+        
+        padding-inline-start: 40px; 
+        padding-inline-start: 12px; 
+        padding-inline-end: 0px;
+}
 }
 
 .nav-left{
@@ -83,6 +98,7 @@
                     border:none;
                     width:80%;
                     font-size: 1rem;
+                    text-transform: capitalize;
                     color:#fff;
                     padding:.475rem .215rem;
                     &:focus{
@@ -100,11 +116,14 @@
                     font-size: 1rem;
                 }
             
-            
-        }
+
+            }
     }
 
     .nav-right__btn-wrapper{
+    @include breakpoint-down(744px){
+        display:none;
+    }
         .nav-right__suscribe{
             display: inline-flex;
             appearance: none;
@@ -194,7 +213,11 @@ hr{
     height:25px;
     max-width:1444px;
     padding:1.875rem 3rem;
+        white-space: nowrap;
     margin: 0 auto;
+    @include breakpoint-down(375px){
+        padding:1rem .875rem;
+    }
     .vertical{
         opacity: 0.6;
         border: 0;

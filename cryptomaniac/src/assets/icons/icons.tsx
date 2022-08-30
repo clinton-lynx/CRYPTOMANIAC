@@ -5,7 +5,6 @@ export function LightMode() {
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" font-size="0.9em" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
   )
 }
-
 export function DarkMode() {
   return (
     <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" fontSize="0.9em" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
@@ -48,4 +47,27 @@ export function Search() {
   }
   
 
- 
+  export function ScrollBack() {
+    return (
+     <svg height="32px" id="Layer_1"  version="1.1" viewBox="0 0 512 512" width="32px" fill="#fff"  xmlns="http://www.w3.org/2000/svg"><polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "/></svg>
+    )
+  }
+  
+  
+   export function MainLogo() {
+    return (
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.7 51.7" width="36px" height="32px"><title>Crypto Logos Logo</title><path d="M317.78,373.93a25.84,25.84,0,1,1-34.86,11,25.85,25.85,0,0,1,34.86-11h0Z" transform="translate(-280 -371)" style={
+      {
+  "fill": "rgba(17, 153, 250, 0.05)",
+  "fillRule": "evenodd"
+}
+    }></path><path d="M315.86,406a13.68,13.68,0,0,1-7.7,4.2l-1.2,5.41-3.5-.78,1-4.51a13.63,13.63,0,0,1-3.52-.85l-1,4.57-3.5-.78,1.24-5.61A13.59,13.59,0,0,1,303,383.56l1.24-5.61,3.5,0.78-1,4.57a13.62,13.62,0,0,1,3.55.72l1-4.51,3.5,0.78-1.2,5.41a13.54,13.54,0,0,1,3.7,3.86,12.94,12.94,0,0,1,1.51,3.21l-5.63,1.78a8.46,8.46,0,0,0-.84-1.83A7.7,7.7,0,1,0,310,403.35a8.22,8.22,0,0,0,1.54-1.3l4.34,4h0Z" transform="translate(-280 -371)" style={{"fill": "rgb(255, 255, 255)"}}></path></svg>
+    )
+  }
+  
+  export function ScrollForward() {
+    return (
+     <svg height="32px" id="Layer_1"  version="1.1" viewBox="0 0 512 512" width="32px" fill="#fff" xmlns="http://www.w3.org/2000/svg"> <polygon points="160,128.4 192.3,96 352,256 352,256 352,256 192.3,416 160,383.6 287.3,256 "/></svg>
+    )
+  }
+  

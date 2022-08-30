@@ -1,9 +1,12 @@
 @import '../main';
 
 .main{
-    background-color: #12192B;
+    background-color: #1c122b;
     color:#fff;
     padding:3rem 2.5rem;   
+    @include breakpoint-down(375px){
+      padding:20px 15px;
+    }
 }
 
 .sections-wrapper{
@@ -17,14 +20,60 @@
         font-size: 2rem;
         margin-bottom: .875rem;
         font-weight: 400;
+        @include breakpoint-down(375px){
+          font-size: 1.25rem;
+          margin-bottom: .45rem;
+        
+        }
+
     }
     .crypto-card-wrapper{
+      transition: all 700ms ease-in-out;
         @include flex-row-between-nowrap;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      
         &--today{
             @include flex-row-between-wrap;
             
         }
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        
+        
     }
+}
+
+.crypto-card-carousel{
+  position:relative;
+
+  .scrolls-wrapper{
+  @include flex-row-between-nowrap;
+  width:100%;
+  position:absolute;
+  margin:0 0px;
+  top:30%;
+  left:0;
+}
+.scroll-btn{
+  display:block;
+  opacity:.75;
+  cursor: pointer;
+  z-index:999999;
+  color:rgb(144, 145, 150);
+  transition: all 400ms ease-in-out;
+  // @include breakpoint-down(985px){
+  //   display:block;
+  // }
+  &:hover{
+    opacity: 1;
+    transform:scale(1.3);
+    color:#fff;
+  }
+}
 }
 .trends{
     margin-top: 3rem;
