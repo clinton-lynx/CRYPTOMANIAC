@@ -1,6 +1,7 @@
 @import "../main";
 
 .crypto-card {
+  transition: all .4s ease-in-out;
   width: 33.3%;
   min-width: 270px;
   // max-width: 300px;

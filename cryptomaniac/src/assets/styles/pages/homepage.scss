@@ -1,14 +1,51 @@
 @import '../main';
 
+
+
+.header-wrapper{
+  // position:sticky;
+  // top: 0;
+  // left:0;
+}
 .main{
-    background-color: #1c122b;
-    color:#fff;
-    padding:3rem 2.5rem;   
+  background-color: #1c122b;
+  color:#fff;
+    padding:3rem 2.5rem;  
+  overflow:hidden; 
     @include breakpoint-down(375px){
       padding:20px 15px;
     }
 }
 
+ .mobile-menu{
+        position:absolute;
+        background-color:$dark-blue;
+        transform: translateX(433px);
+        transition: all .4s ease-in-out;
+        padding:1.5rem .875rem;
+        top:60px;
+        right:0;
+        width:100%;
+        max-width:400px;
+        height:100vh;
+        z-index:50000000000000;
+        .mobile-menu-list-item-wrapper{
+          margin: 0.7rem 0;
+          margin-bottom: 2rem;
+          width: 100%;
+          padding: .5rem ;
+          background:$light-blue;
+          border-radius: 3px;
+
+        }
+        .mobile-menu-list-item{
+            color:#fff;
+            text-transform: capitalize;
+            width:100%;
+
+            // white-space:nowrap;
+        }
+    }
 .sections-wrapper{
  
     max-width:1444px;
@@ -20,7 +57,7 @@
         font-size: 2rem;
         margin-bottom: .875rem;
         font-weight: 400;
-        @include breakpoint-down(375px){
+        @include breakpoint-down(744px){
           font-size: 1.25rem;
           margin-bottom: .45rem;
         
@@ -46,6 +83,7 @@
         
     }
 }
+
 
 .crypto-card-carousel{
   position:relative;
@@ -86,6 +124,18 @@
 .guide__nav-list {
     @include flex-row-start-nowrap;
     white-space: nowrap;
+    .active {
+      color: #ffefef;
+    }
+    .active::after {
+      content: "";
+      position: absolute;
+      background-color: rgb(254, 254, 254);
+      bottom: -8px;
+      left: 10px;
+      width: calc(100% - 20px);
+      height: 2px;
+    }
   }
   
   .guide__nav-list:first-child {
@@ -129,6 +179,7 @@
     &:focus {
       transform: scale(0.96);
     }
+    
   }
   .guide__nav-line {
     height: 1px;
@@ -137,18 +188,6 @@
     min-width: 250px;
   }
   
-  .active {
-    color: #ffefef;
-  }
-  .active::after {
-    content: "";
-    position: absolute;
-    background-color: rgb(254, 254, 254);
-    bottom: -8px;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: 2px;
-  }
 
   .section-currency{
     font-weight: 600;

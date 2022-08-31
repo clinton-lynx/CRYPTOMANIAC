@@ -4,16 +4,21 @@ import Header from "../components/Header";
 import SearchMobile from "../components/SearchMobile";
 import "../assets/styles/pages/homepage.scss";
 import Footer from "../components/footer";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
-// import { scrollForward } from "../assets/icons/icons";
-// import { scrollBack } from "../assets/icons/icons";
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
   const [trendCoins, setTrendingCoins] =useState([]);
   const [search, setSearch] = useState("");
+  const [slide, setSlide] = useState(false);
+  const currentSlide = slide ? "translateX(433px)": "translateX(0px)";
+  const bodyRide = slide ?  "auto": "hidden" 
 // console.log(search);
+
+
+
+
 
    const handleChange = (e: any) => {
     setSearch(e.target.value)
@@ -22,17 +27,17 @@ const HomePage = () => {
     try {
       const response = await axios(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      );
-      console.log(response);
-      const data = response.data;
-      console.log(data);
-
+        );
+        console.log(response);
+        const data = response.data;
+        console.log(data);
+        
       setCoins(data);
     } catch (error: any) {
       console.log(error.response);
     }
   };
-
+  
   const fetchTrendingData = async () =>{
     try {
       const response = await axios('https://api.coingecko.com/api/v3/search/trending')
@@ -66,33 +71,41 @@ const HomePage = () => {
   console.log(coins);
   console.log(search);
   
+  const mobileNavSlide= () =>{
+    setSlide(prev => !prev);
+    const mobileNav = document.querySelector('.mobile-menu') as HTMLElement;
+    const wrapper = document.querySelector('body') as HTMLElement;
+    mobileNav.style.transform= `${currentSlide}`;
+    wrapper.style.overflowY= `${bodyRide}`;
+    
+    console.log('slide werey');
+    console.log(slide);
+    
+    
+  }
+  // TRENDS SIDE EFFECT WHEN SEARCHING 
+  const searchSideEffect = ()=>{
+    const trendSection = document.querySelector('.trends') as HTMLElement;
+    trendSection.style.display = "none"; 
+    trendSection.style.marginTop = "0px"; 
+    console.log('now on focus');
+    
+  }
   
-  
-  // const filteredCoins = coins.filter(coin =>
-  //   coin.name.toLowerCase().includes(search.toLowerCase())
-  // )
-  // const fetchData = async () => {
-  //   try{
-  //     const response = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false');
-  //     console.log(response);
 
-  //     const data = response.data;
-  //     console.log(data);
-
-  //   }catch (error:any){
-  //     // console.log(error.response);
-  //     }
-  // };
-  // useEffect(()=> {
-  //   fetchData()
-  // },[]);
-  // const filteredCoins= data;
+ 
   return (
     <>
-      <div className="">
-        <Header handler={handleChange} />
+      <div className="header-wrapper">
+        <Header handler={handleChange} slideHandler ={mobileNavSlide} searchSideEffect={searchSideEffect} />
       </div>
       <main className="main">
+      <ul className="mobile-menu">
+        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">cryptonews</a></li>
+        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">currency coverter</a></li>
+        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">about</a></li>
+        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">suscribe</a></li>
+      </ul>
         <div className="sections-wrapper">
           <section className="trends">
             <h1 className="section-title">top trends</h1>
@@ -107,14 +120,7 @@ const HomePage = () => {
                 percent={`${coin.item.market_cap_change_rank}%`}
                 />
               ))}
-            
-              {/* {/* <CryptoCard />
-              <CryptoCard />
-              <CryptoCard />
-              <CryptoCard />
-              <CryptoCard />
-              <CryptoCard /> */}
-          
+                     
             </div>
             <div className="scrolls-wrapper">
               <span className="scroll-btn" onClick={scrollBack}><ScrollBack /></span>
@@ -156,14 +162,8 @@ const HomePage = () => {
             </nav>
             <div className="guide__nav-line"></div>
             <div className="crypto-card-wrapper--today">
-              {/* {filteredCoins.map((prev):any =>{
-            {/* <CryptoCard name={prev?.name}
-          price={prev.price}
-          subtitle={prev.subtitle}
-          logo={prev.image}
-          percent={'12%'}
-           />
-          */}
+
+          
               {filteredCoins.map((coin: any) => (
                 <CryptoCard
                   name={coin.name}
@@ -174,45 +174,6 @@ const HomePage = () => {
                 />
               ))}
 
-              {/* <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} />
-           <CryptoCard name={'bitcoin'} subtitle={'bitcoin'} price={'$29903'} percent={'342%'} /> */}
-              {/* <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard /> 
-           <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard /> 
-           <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard />
-          <CryptoCard /> 
-           <CryptoCard />
-          <CryptoCard />  */}
             </div>
           </section>
           <div className="bottom-section">

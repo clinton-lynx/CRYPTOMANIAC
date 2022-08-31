@@ -8,11 +8,17 @@
 
 .header{
     background-color:$dark-blue;
+   
     position: sticky;
     top: 0px;
     z-index: 1100;
     color:#fff;
 }
+.market-details-list-item-wrapper .active{
+    color:#fefefe;
+    font-weight:700;
+    font-size:.875rem;
+  }
 .nav-logo{
     @include flex-row-center-wrap;
 }
@@ -35,7 +41,7 @@
     padding-inline-end: 40px;
     max-width:1444px;
     margin:0 auto;
-    @include breakpoint-down(375px){
+    @include breakpoint-down(475px){
         
         padding-inline-start: 40px; 
         padding-inline-start: 12px; 
@@ -47,6 +53,17 @@
     @include flex-row-between-nowrap;
     align-items: baseline;
     
+}
+.mobile-nav-right__form-wrapper{
+ @extend .nav-right__form-wrapper;
+ display:none;
+ padding-left: .75rem;
+ padding-top: .5rem;
+ padding-bottom: .75rem;
+ @include breakpoint-down(475px){
+    display: block !important;
+ }
+
 }
 .market-details-list-item-wrapper{
     margin-right: 1rem;
@@ -81,7 +98,7 @@
 
     .nav-right__form-wrapper{
         margin-right: 1rem;
-        @include breakpoint-down(1280px){
+        @include breakpoint-down(475px){
             display:none;
         }
             .form{
@@ -152,9 +169,15 @@
             color: #fff;
             text-transform: capitalize;
             width: 100%;
+            @include breakpoint-down(1280px){
+                display:none;
+            }
         }
     }
-
+    
+    .nav-right__search-icon-wrapper{
+        display: none;
+    }
     .nav-right__theme-toogle{
         margin-left: 15px;
         margin-right: 10px;
@@ -210,6 +233,7 @@ hr{
 
     .header-filters{
     @include flex-row-start-nowrap;
+    display:none;
     height:25px;
     max-width:1444px;
     padding:1.875rem 3rem;
@@ -217,6 +241,9 @@ hr{
     margin: 0 auto;
     @include breakpoint-down(375px){
         padding:1rem .875rem;
+    }
+    @include breakpoint-down(475px){
+        display:none;
     }
     .vertical{
         opacity: 0.6;
@@ -246,3 +273,8 @@ hr{
             color: #fff;
         }
     }
+.nav-right__menu-wrapper{
+    // position:relative;
+
+  
+}

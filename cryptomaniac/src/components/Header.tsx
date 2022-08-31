@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { DropDown, Hamburger, LightMode, MainLogo, MobileSearch, Search } from '../assets/icons/icons';
-// import {Link} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
 
-const Header = ({handler}: any) => {
+const Header = ({handler, slideHandler, searchSideEffect}: any) => {
  
 
  
@@ -16,9 +16,9 @@ const Header = ({handler}: any) => {
     <nav>
     <div className="market-details">
       <ul className="market-details-list">
-        <li className="market-details-list-item-wrapper"><a href="http://">Cryptonews</a></li>
-        <li className="market-details-list-item-wrapper"><a href="http://">Currency converter</a></li>
-        <li className="market-details-list-item-wrapper"><a href="http://">About</a></li>
+        <li className="market-details-list-item-wrapper"><NavLink to="/">Home</NavLink></li>
+        <li className="market-details-list-item-wrapper"><NavLink to="/vjh">Cryptonews</NavLink></li>
+        <li className="market-details-list-item-wrapper"><NavLink to="/jh">Currency converter</NavLink></li>
     
       </ul>
     </div>
@@ -27,7 +27,7 @@ const Header = ({handler}: any) => {
     <div className="nav-right">
     <div className='nav-right__form-wrapper'>
         <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} />
+            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} />
             <div className="search">
       <Search />
     </div>
@@ -42,13 +42,9 @@ const Header = ({handler}: any) => {
      <div className="nav-right__search-icon-wrapper">
       <MobileSearch />
     </div>
-    <div className="nav-right__menu-wrapper">
+    <div className="nav-right__menu-wrapper"  onClick={slideHandler}>
       <Hamburger />
-      <ul className="mobile-menu">
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">cryptonews</a></li>
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">currency coverter</a></li>
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">about</a></li>
-      </ul>
+     
     </div>
     </div>
   </div>
@@ -59,6 +55,15 @@ const Header = ({handler}: any) => {
       <hr className='vertical'/>
     </div>
     <hr className='horizontal' />
+    <div className='mobile-nav-right__form-wrapper'>
+        <form action="" className="form">
+            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} />
+            <div className="search">
+      <Search />
+    </div>
+        </form>
+        </div>
+ 
  </header>
   )
 }
