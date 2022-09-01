@@ -91,13 +91,21 @@ const HomePage = () => {
     console.log('now on focus');
     
   }
+  const searchSecondSideEffect = ()=>{
+    const trendSection = document.querySelector('.trends') as HTMLElement;
+    trendSection.style.display = "block"; 
+    trendSection.style.marginTop = "3rem"; 
+    console.log('now on blur');
+    
+  }
+  
   
 
  
   return (
     <>
       <div className="header-wrapper">
-        <Header handler={handleChange} slideHandler ={mobileNavSlide} searchSideEffect={searchSideEffect} />
+        <Header handler={handleChange} slideHandler ={mobileNavSlide} searchSideEffect={searchSideEffect} blur={searchSecondSideEffect} />
       </div>
       <main className="main">
       <ul className="mobile-menu">

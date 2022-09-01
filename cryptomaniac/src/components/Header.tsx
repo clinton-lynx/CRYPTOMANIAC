@@ -4,7 +4,7 @@ import { DropDown, Hamburger, LightMode, MainLogo, MobileSearch, Search } from '
 import { NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
 
-const Header = ({handler, slideHandler, searchSideEffect}: any) => {
+const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
  
 
  
@@ -27,7 +27,7 @@ const Header = ({handler, slideHandler, searchSideEffect}: any) => {
     <div className="nav-right">
     <div className='nav-right__form-wrapper'>
         <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} />
+            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} onBlur={blur} />
             <div className="search">
       <Search />
     </div>
