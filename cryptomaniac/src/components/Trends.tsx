@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import CryptoCard from './CryptoCard';
 
-const MostViewed = () => {
+const Trends = () => {
 
   const [coins, setCoins] = useState([]);
 
@@ -27,7 +27,7 @@ const MostViewed = () => {
 
   return (
     <>
-    <div>MostViewed</div>
+    <div>Trends</div>
     <div className="crypto-card-wrapper--today">
 
           
@@ -47,4 +47,4 @@ const MostViewed = () => {
   )
 }
 
-export default MostViewed
+export default Trends

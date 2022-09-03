@@ -27,7 +27,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     <div className="nav-right">
     <div className='nav-right__form-wrapper'>
         <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} onBlur={blur} />
+            <input type="text" className="input-text" placeholder='Search ' onChange={handler} onFocus={searchSideEffect} onBlur={blur} />
             <div className="search">
       <Search />
     </div>
@@ -57,7 +57,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     <hr className='horizontal' />
     <div className='mobile-nav-right__form-wrapper'>
         <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} />
+            <input type="text" className="input-text" placeholder='Search ' onChange={handler} onFocus={searchSideEffect} />
             <div className="search">
       <Search />
     </div>

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import CryptoCard from './CryptoCard';
 
-const MostViewed = () => {
+const RecentlyAdded = () => {
 
   const [coins, setCoins] = useState([]);
 
@@ -27,7 +27,7 @@ const MostViewed = () => {
 
   return (
     <>
-    <div>MostViewed</div>
+    <div>RecentlyAdded</div>
     <div className="crypto-card-wrapper--today">
 
           
@@ -37,7 +37,7 @@ const MostViewed = () => {
     logo={coin.image}
     subtitle={coin.symbol}
     price={`$${coin.current_price}`}
-    percent={`${coin.market_cap_change_percentage_24h}%`}
+    percent={`${coin.market_cap_change_percentage_24h}%&&&`}
   />
 ))}
 
@@ -47,4 +47,4 @@ const MostViewed = () => {
   )
 }
 
-export default MostViewed
+export default RecentlyAdded

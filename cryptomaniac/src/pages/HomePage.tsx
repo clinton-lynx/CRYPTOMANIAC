@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CryptoCard from "../components/CryptoCard";
 import Header from "../components/Header";
-import SearchMobile from "../components/SearchMobile";
 import "../assets/styles/pages/homepage.scss";
 import Footer from "../components/footer";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink , Outlet } from "react-router-dom";
 import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
+
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
   const [trendCoins, setTrendingCoins] =useState([]);
@@ -14,7 +14,7 @@ const HomePage = () => {
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(433px)": "translateX(0px)";
   const bodyRide = slide ?  "auto": "hidden" 
-// console.log(search);
+
 
 
 
@@ -80,24 +80,27 @@ const HomePage = () => {
     
     console.log('slide werey');
     console.log(slide);
-    
-    
-  }
+    }
+
+
+
+
   // TRENDS SIDE EFFECT WHEN SEARCHING 
   const searchSideEffect = ()=>{
     const trendSection = document.querySelector('.trends') as HTMLElement;
     trendSection.style.display = "none"; 
     trendSection.style.marginTop = "0px"; 
     console.log('now on focus');
-    
-  }
+      }
+
+
+
   const searchSecondSideEffect = ()=>{
     const trendSection = document.querySelector('.trends') as HTMLElement;
     trendSection.style.display = "block"; 
     trendSection.style.marginTop = "3rem"; 
     console.log('now on blur');
-    
-  }
+      }
   
   
 
@@ -105,7 +108,9 @@ const HomePage = () => {
   return (
     <>
       <div className="header-wrapper">
+  
         <Header handler={handleChange} slideHandler ={mobileNavSlide} searchSideEffect={searchSideEffect} blur={searchSecondSideEffect} />
+    
       </div>
       <main className="main">
       <ul className="mobile-menu">
@@ -143,32 +148,33 @@ const HomePage = () => {
               <div className="guide__nav-wrapper">
                 <ul className="guide__nav-list">
                   <li className="guide__nav-list-item">
-                    <Link
-                      className="guide__nav-list-item-link active"
-                      to="/lklek"
+                    <NavLink
+                      className="guide__nav-list-item-link"
+                      to="/"
                     >
-                      Defi
-                    </Link>
+                      All Coins
+                    </NavLink>
                   </li>
                   <li className="guide__nav-list-item">
-                    <Link className="guide__nav-list-item-link" to="/">
-                      NFTS
-                    </Link>
+                    <NavLink className="guide__nav-list-item-link" to="NFTs">
+                     NFTs
+                    </NavLink>
                   </li>
                   <li className="guide__nav-list-item">
-                    <Link className="guide__nav-list-item-link" to="/jjjjj">
-                      Coins
-                    </Link>
+                    <NavLink className="guide__nav-list-item-link" to="trends">
+                     Trends
+                    </NavLink>
                   </li>
                   <li className="guide__nav-list-item">
-                    <Link className="guide__nav-list-item-link" to="/jjjj">
-                      most viewed
-                    </Link>
+                    <NavLink className="guide__nav-list-item-link" to="recently-added">
+                     Recently Added
+                    </NavLink>
                   </li>
                 </ul>
               </div>
             </nav>
             <div className="guide__nav-line"></div>
+            <Outlet />
             <div className="crypto-card-wrapper--today">
 
           
@@ -237,16 +243,10 @@ const HomePage = () => {
         </div>
       </main>
       <Footer />
-      {/* <SearchMobile /> */}
+     
     </>
   );
 };
 
 export default HomePage;
 
-// function asvnc() {
-//   throw new Error('Function not implemented.')
-// }
-// function fetchData() {
-//   throw new Error('Function not implemented.')
-// }

@@ -1,0 +1,44 @@
+@import "../main";
+
+.article-title {
+  font-size: 2rem;
+  padding-bottom: 2.2rem;
+//   color:#A0A9BE;
+  font-weight: 500;
+}
+
+.article-image-wrapper {
+  margin: 1rem 0;
+  .img {
+    max-width: 100%;
+  }
+}
+
+.article-wrapper {
+  padding-bottom: 2.5rem;
+  .article {
+    font-size: 1rem;
+    line-height: 22px;
+  }
+}
+.more-article-heading {
+  @include flex-row-between-nowrap;
+  margin: 1rem 0;
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .all-articles {
+    color: #fff;
+    padding: 0.545rem;
+    text-transform: capitalize;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    @include breakpoint-down(744px){
+        display:none;
+    }
+  }
+}

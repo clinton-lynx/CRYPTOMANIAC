@@ -14,7 +14,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     <div className="nav-left">
       <div className="nav-logo"><span className="crptomaniac-logo"><MainLogo /></span><h1 className="nav-logo--title">cryptomaniac</h1></div>
     <nav>
-    <div className="market-details">
+    <div className="article-market-details">
       <ul className="market-details-list">
         <li className="market-details-list-item-wrapper"><NavLink to="/">Home</NavLink></li>
         <li className="market-details-list-item-wrapper"><NavLink to="/news-listing">Cryptonews</NavLink></li>
@@ -25,15 +25,8 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     </nav>
     </div>
     <div className="nav-right">
-    <div className='nav-right__form-wrapper'>
-        <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} onBlur={blur} />
-            <div className="search">
-      <Search />
-    </div>
-        </form>
-    </div>
-    <div className="nav-right__btn-wrapper">
+  
+      <div className="nav-right__btn-wrapper">
     <button className="nav-right__suscribe">suscribe</button>
     </div>
     <div className="nav-right__theme-toogle">
@@ -57,7 +50,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     <hr className='horizontal' />
     <div className='mobile-nav-right__form-wrapper'>
         <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} />
+            <input type="text" className="input-text" placeholder='Search ' onChange={handler} onFocus={searchSideEffect} />
             <div className="search">
       <Search />
     </div>

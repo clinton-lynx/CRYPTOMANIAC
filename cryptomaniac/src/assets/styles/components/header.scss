@@ -56,6 +56,7 @@
 }
 .mobile-nav-right__form-wrapper{
  @extend .nav-right__form-wrapper;
+ margin-right: .35rem;
  display:none;
  padding-left: .75rem;
  padding-top: .5rem;
