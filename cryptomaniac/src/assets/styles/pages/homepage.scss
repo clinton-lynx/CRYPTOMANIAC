@@ -210,11 +210,20 @@ label{
   border-radius:.125rem;
   border-color: #C9CFDD;
   background-color: transparent;
+  color: #fff;
+}
+
+.primary-input, .secondary-input{
+  @extend .input;
+ 
+  option{
+  background-color:transparent;
+  color: #222;
+  }
 }
 .currency-converter{
   display: flex;
   align-items: flex-start;
-  // justify-content: flex-start;
   flex-direction: column;
   font-weight: 500;
   
@@ -227,17 +236,16 @@ label{
     box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.05);
   
   align-self: stretch;
-  margin-bottom: var(--chakra-space-5);
   .result-wrapper{
     margin-top:2rem;
     .result-currency{
-      font-size: 1.4rem;
+    font-size: 1.4rem;
       text-transform: uppercase;
     }
   }
 }
 .converter-form{
-  margin-top: 1rrem;
+  margin-top: 1 rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -267,4 +275,19 @@ label{
 .bottom-section{
   @include flex-row-center-wrap;
   align-items:flex-start;
+  .section-currency-title{
+    @extend .result-wrapper;
+  }
+}
+.secondary-input{
+  color:rgb(34, 34, 34)}
+
+.section-currency-title{
+  @extend .section-currency;
+  
+}
+
+.exchange-rate{
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }

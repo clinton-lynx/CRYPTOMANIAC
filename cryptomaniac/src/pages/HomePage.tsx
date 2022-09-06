@@ -3,142 +3,149 @@ import CryptoCard from "../components/CryptoCard";
 import Header from "../components/Header";
 import "../assets/styles/pages/homepage.scss";
 import Footer from "../components/footer";
-import { Link, NavLink , Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
 
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
-  const [trendCoins, setTrendingCoins] =useState([]);
+  const [trendCoins, setTrendingCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
-  const currentSlide = slide ? "translateX(433px)": "translateX(0px)";
-  const bodyRide = slide ?  "auto": "hidden" 
+  const currentSlide = slide ? "translateX(433px)" : "translateX(0px)";
+  const bodyRide = slide ? "auto" : "hidden";
 
-
-
-
-
-
-   const handleChange = (e: any) => {
-    setSearch(e.target.value)
-  } 
+  const handleChange = (e: any) => {
+    setSearch(e.target.value);
+  };
   const fetchData = async () => {
     try {
       const response = await axios(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-        );
-        console.log(response);
-        const data = response.data;
-        console.log(data);
-        
+      );
+      console.log(response);
+      const data = response.data;
+      console.log(data);
+
       setCoins(data);
     } catch (error: any) {
       console.log(error.response);
     }
   };
-  
-  const fetchTrendingData = async () =>{
+
+  const fetchTrendingData = async () => {
     try {
-      const response = await axios('https://api.coingecko.com/api/v3/search/trending')
+      const response = await axios(
+        "https://api.coingecko.com/api/v3/search/trending"
+      );
       setTrendingCoins(response.data.coins);
       console.log(response.data.coins);
-      
-    } catch (error) {
-      
-    }
-  }
+    } catch (error) {}
+  };
 
-  const scrollBack = () =>{
-    const carousel =  document.querySelector('.crypto-card-wrapper')!
+  const scrollBack = () => {
+    const carousel = document.querySelector(".crypto-card-wrapper")!;
     carousel.scrollLeft = carousel.scrollLeft - 300;
-    console.log('clicked back');
-    
-  }
-  const scrollForward = () =>{
-    const carousel =  document.querySelector('.crypto-card-wrapper')!
+    console.log("clicked back");
+  };
+  const scrollForward = () => {
+    const carousel = document.querySelector(".crypto-card-wrapper")!;
     carousel.scrollLeft = carousel.scrollLeft + 300;
-    console.log('clicked foreward');
-  }
+    console.log("clicked foreward");
+  };
   useEffect(() => {
     fetchData();
     fetchTrendingData();
   }, []);
-  const filteredCoins = coins.filter((coin : any) => 
-      coin.name.toLowerCase().includes(search.toLowerCase())
-  )
+  const filteredCoins = coins.filter((coin: any) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
   console.log(filteredCoins);
   console.log(coins);
   console.log(search);
-  
-  const mobileNavSlide= () =>{
-    setSlide(prev => !prev);
-    const mobileNav = document.querySelector('.mobile-menu') as HTMLElement;
-    const wrapper = document.querySelector('body') as HTMLElement;
-    mobileNav.style.transform= `${currentSlide}`;
-    wrapper.style.overflowY= `${bodyRide}`;
-    
-    console.log('slide werey');
+
+  const mobileNavSlide = () => {
+    setSlide((prev) => !prev);
+    const mobileNav = document.querySelector(".mobile-menu") as HTMLElement;
+    const wrapper = document.querySelector("body") as HTMLElement;
+    mobileNav.style.transform = `${currentSlide}`;
+    wrapper.style.overflowY = `${bodyRide}`;
+
+    console.log("slide werey");
     console.log(slide);
-    }
+  };
 
+  // TRENDS SIDE EFFECT WHEN SEARCHING
+  const searchSideEffect = () => {
+    const trendSection = document.querySelector(".trends") as HTMLElement;
+    trendSection.style.display = "none";
+    trendSection.style.marginTop = "0px";
+    console.log("now on focus");
+  };
 
+  const searchSecondSideEffect = () => {
+    const trendSection = document.querySelector(".trends") as HTMLElement;
+    trendSection.style.display = "block";
+    trendSection.style.marginTop = "3rem";
+    console.log("now on blur");
+  };
 
-
-  // TRENDS SIDE EFFECT WHEN SEARCHING 
-  const searchSideEffect = ()=>{
-    const trendSection = document.querySelector('.trends') as HTMLElement;
-    trendSection.style.display = "none"; 
-    trendSection.style.marginTop = "0px"; 
-    console.log('now on focus');
-      }
-
-
-
-  const searchSecondSideEffect = ()=>{
-    const trendSection = document.querySelector('.trends') as HTMLElement;
-    trendSection.style.display = "block"; 
-    trendSection.style.marginTop = "3rem"; 
-    console.log('now on blur');
-      }
-  
-  
-
- 
   return (
     <>
       <div className="header-wrapper">
-  
-        <Header handler={handleChange} slideHandler ={mobileNavSlide} searchSideEffect={searchSideEffect} blur={searchSecondSideEffect} />
-    
+        <Header
+          handler={handleChange}
+          slideHandler={mobileNavSlide}
+          searchSideEffect={searchSideEffect}
+          blur={searchSecondSideEffect}
+        />
       </div>
       <main className="main">
-      <ul className="mobile-menu">
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">cryptonews</a></li>
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">currency coverter</a></li>
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">about</a></li>
-        <li className="mobile-menu-list-item-wrapper"><a href="" className="mobile-menu-list-item">suscribe</a></li>
-      </ul>
+        <ul className="mobile-menu">
+          <li className="mobile-menu-list-item-wrapper">
+            <a href="" className="mobile-menu-list-item">
+              cryptonews
+            </a>
+          </li>
+          <li className="mobile-menu-list-item-wrapper">
+            <a href="" className="mobile-menu-list-item">
+              currency coverter
+            </a>
+          </li>
+          <li className="mobile-menu-list-item-wrapper">
+            <a href="" className="mobile-menu-list-item">
+              about
+            </a>
+          </li>
+          <li className="mobile-menu-list-item-wrapper">
+            <a href="" className="mobile-menu-list-item">
+              suscribe
+            </a>
+          </li>
+        </ul>
         <div className="sections-wrapper">
           <section className="trends">
             <h1 className="section-title">top trends</h1>
             <div className="crypto-card-carousel">
-            <div className="crypto-card-wrapper">
-              {trendCoins.map((coin  : any )=>(
-                <CryptoCard 
-                name={coin.item?.name}
-                logo={coin.item.large}
-                subtitle={coin.item.symbol}
-                price={`$${coin.item.price_btc.toFixed(2)}`}
-                percent={`${coin.item.market_cap_change_rank}%`}
-                />
-              ))}
-                     
-            </div>
-            <div className="scrolls-wrapper">
-              <span className="scroll-btn" onClick={scrollBack}><ScrollBack /></span>
-              <span className="scroll-btn" onClick={scrollForward}><ScrollForward /></span>
-            </div>
+              <div className="crypto-card-wrapper">
+                {trendCoins.map((coin: any) => (
+                  <CryptoCard
+                    name={coin.item?.name}
+                    logo={coin.item.large}
+                    subtitle={coin.item.symbol}
+                    price={`$${coin.item.price_btc.toFixed(2)}`}
+                    percent={`${coin.item.market_cap_change_rank}%`}
+                  />
+                ))}
+              </div>
+              <div className="scrolls-wrapper">
+                <span className="scroll-btn" onClick={scrollBack}>
+                  <ScrollBack />
+                </span>
+                <span className="scroll-btn" onClick={scrollForward}>
+                  <ScrollForward />
+                </span>
+              </div>
             </div>
           </section>
 
@@ -148,26 +155,26 @@ const HomePage = () => {
               <div className="guide__nav-wrapper">
                 <ul className="guide__nav-list">
                   <li className="guide__nav-list-item">
-                    <NavLink
-                      className="guide__nav-list-item-link"
-                      to="/"
-                    >
+                    <NavLink className="guide__nav-list-item-link" to="/">
                       All Coins
                     </NavLink>
                   </li>
                   <li className="guide__nav-list-item">
                     <NavLink className="guide__nav-list-item-link" to="NFTs">
-                     NFTs
+                      NFTs
                     </NavLink>
                   </li>
                   <li className="guide__nav-list-item">
                     <NavLink className="guide__nav-list-item-link" to="trends">
-                     Trends
+                      Trends
                     </NavLink>
                   </li>
                   <li className="guide__nav-list-item">
-                    <NavLink className="guide__nav-list-item-link" to="recently-added">
-                     Recently Added
+                    <NavLink
+                      className="guide__nav-list-item-link"
+                      to="recently-added"
+                    >
+                      Recently Added
                     </NavLink>
                   </li>
                 </ul>
@@ -176,8 +183,6 @@ const HomePage = () => {
             <div className="guide__nav-line"></div>
             <Outlet />
             <div className="crypto-card-wrapper--today">
-
-          
               {filteredCoins.map((coin: any) => (
                 <CryptoCard
                   name={coin.name}
@@ -187,16 +192,22 @@ const HomePage = () => {
                   percent={`${coin.market_cap_change_percentage_24h}%`}
                 />
               ))}
-
             </div>
           </section>
           <div className="bottom-section">
             <section className="currency-converter">
-              <h1 className="section-currency">currency converter</h1>
+                          <h1 className="section-currency">currency converter</h1>
               <form action="" className="converter-form">
                 <div className="first-currency">
                   <label htmlFor="input1">amount</label>
                   <input className="input" type="text" name="input1" required />
+                  <select name="coin" className="primary-input">
+                    <option value="btc">btc</option>
+                    <option value="xrp">xrp</option>
+                    <option value="get">get</option>
+                    <option value="loco">loco</option>
+                    <option value="qwe">qwe</option>
+                  </select>
                 </div>
                 <div className="arrow-sign-wrapper">
                   <img
@@ -207,12 +218,24 @@ const HomePage = () => {
                 <div className="second-currency">
                   <label htmlFor="input2">currency</label>
                   <input className="input" type="text" name="input2" required />
+                  <select name="coin" className="secondary-input">
+                    <option value="btc">usd</option>
+                    <option value="xrp">xrp</option>
+                    <option value="get">get</option>
+                    <option value="loco">loco</option>
+                    <option value="qwe">qwe</option>
+                  </select>
                 </div>
               </form>
               <div className="result-wrapper">
-                <p className="result-currency">1= 0.03usd</p>
+                <p className="result-currency">1btc = 0.03usd</p>
+              </div>
+                          <div className="currency-converter-right">
+                <h1 className="section-currency-title">exchange rate</h1>
+                <p className="exchange-rate">1btc = 0.03usd</p>
               </div>
             </section>
+              {/* </div> */}
             <section className="news-feed">
               <h1 className="section-currency">Cryptomaniac NewsFeed</h1>
               <ul className="news-feed-list">
@@ -243,10 +266,8 @@ const HomePage = () => {
         </div>
       </main>
       <Footer />
-     
     </>
   );
 };
 
 export default HomePage;
-

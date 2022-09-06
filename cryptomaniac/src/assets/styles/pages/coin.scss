@@ -1,0 +1,50 @@
+@import '../main';
+
+.coin-chart-wrapper{
+    // @include flex-row-center-nowrap;
+    padding: 16px 14px 14px 14px;
+    border-radius: 4px;
+  box-shadow: 0px 4px 10px 3px #0000000d;
+  background-color:rgba(17, 153,250,0.05);
+
+}
+.coin-name-wrapper{
+
+    .coin-name{
+
+        display: inline;
+        margin-right: .875rem;
+    }
+    .coin-symbol{
+        color: #CFC9DD
+    }
+  margin-bottom: 1.5rem;
+}
+
+.coin-price{
+    font-size: 32px;
+    display: inline;
+    line-height: 1.2;
+    &-per{
+        color:#D9475A;
+    margin-left: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+.coin-chart-section{
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.chart-title{
+    text-transform: capitalize;
+    margin:8rem 0;
+    // color:rgba(17, 153,250,0.05);
+    font-size: .875rem;
+}
+
+
+.about-coin-section{
+    @extend .coin-chart-wrapper;
+  }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { DropDown, Hamburger, LightMode, MainLogo, MobileSearch, Search } from '../assets/icons/icons';
 import { NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
+import '../assets/styles/components/article-header.scss';
 
 const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
  
@@ -13,6 +14,9 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
   <div className="nav-wrapper">
     <div className="nav-left">
       <div className="nav-logo"><span className="crptomaniac-logo"><MainLogo /></span><h1 className="nav-logo--title">cryptomaniac</h1></div>
+  
+    </div>
+    <div className="nav-right">
     <nav>
     <div className="article-market-details">
       <ul className="market-details-list">
@@ -23,9 +27,6 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
       </ul>
     </div>
     </nav>
-    </div>
-    <div className="nav-right">
-  
       <div className="nav-right__btn-wrapper">
     <button className="nav-right__suscribe">suscribe</button>
     </div>
@@ -35,7 +36,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
      <div className="nav-right__search-icon-wrapper">
       <MobileSearch />
     </div>
-    <div className="nav-right__menu-wrapper"  onClick={slideHandler}>
+    <div className="article-nav-right__menu-wrapper"  onClick={slideHandler}>
       <Hamburger />
      
     </div>
@@ -48,14 +49,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
       <hr className='vertical'/>
     </div>
     <hr className='horizontal' />
-    <div className='mobile-nav-right__form-wrapper'>
-        <form action="" className="form">
-            <input type="text" className="input-text" placeholder='Search ' onChange={handler} onFocus={searchSideEffect} />
-            <div className="search">
-      <Search />
-    </div>
-        </form>
-        </div>
+    
  
  </header>
   )

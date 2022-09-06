@@ -1,0 +1,15 @@
+@import '../main';
+
+.article-nav-right__menu-wrapper{
+    display: none;
+    @include breakpoint-down(744px){
+        display:block;
+    }
+}
+
+.article-market-details{
+    @include breakpoint-down(744px){
+        display:none;
+    }
+    
+}

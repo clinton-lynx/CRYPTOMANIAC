@@ -10,6 +10,7 @@ import Trends from './components/Trends';
 import AllCoins from './components/AllCoins';
 import NFTs from './components/NFTs';
 import RecentlyAdded from './components/RecentlyAdded';
+import Crypto from './pages/Crypto';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         </Route>
        <Route path='/news-listing' element={<NewsListing />} />
        <Route path='/news-listing/article' element={<Article />} />
+       <Route path='/coin' element={<Crypto />} />
      
       </Routes>
      </BrowserRouter>
