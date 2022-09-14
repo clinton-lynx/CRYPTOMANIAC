@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import Header from "../components/Header";
 
 import "../assets/styles/pages/coin.scss";
 import Footer from "../components/footer";
+import { useParams } from "react-router-dom";
 
 const Crypto = () => {
+
+  const params = useParams();
+  const coin = params.coin;
+
+   const [coinDetails, setCoinDetails] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios(
+       `https://api.coingecko.com/api/v3/coins/${coin}`
+        );
+        console.log(response);
+        const data = response.data;
+        console.log(data);
+        
+      setCoinDetails(data);
+    } catch (error: any) {
+      console.log(error.response);
+    }
+  };
+
+  useEffect(()=> {
+    fetchData();
+    console.log(coin);
+    
+  }, [])
+
+
   return (
     <>
       <Header />
@@ -792,6 +822,9 @@ const Crypto = () => {
             </div>
           </div>
         </div>
+        <section className="about-coin-container">
+         <h2 className="section-title">about btc</h2>
+        </section>
       </main>
       <Footer />
     </>

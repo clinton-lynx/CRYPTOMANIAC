@@ -245,19 +245,18 @@ label{
   }
 }
 .converter-form{
-  margin-top: 1 rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  // align-self: flex-start;
   .arrow-sign-wrapper{
     margin:1.125rem 0;
   }
 }
 .news-feed{
   
-  width: 49%;
+  width:99%;
   margin: .5%;
   flex:1 1 340px;
   padding: 16px 14px 14px 14px;

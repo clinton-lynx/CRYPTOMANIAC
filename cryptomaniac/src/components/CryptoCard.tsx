@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/cryptocard.scss';
 
 
 
-const CryptoCard = ({name, price, logo, subtitle, percent}: any) => {
+const CryptoCard = ({name, price, logo,coinId, subtitle, percent}: any) => {
   return (
     <>
-<div className="crypto-card">
+<Link to={`/all-coins/${coinId}`} className="crypto-card">
   <div className="crypto-card__left">
   <div className="crypto-icon-wrapper">
     <img src={logo} alt="coin-icon" className="crypto-icon" />
@@ -26,7 +27,7 @@ const CryptoCard = ({name, price, logo, subtitle, percent}: any) => {
       {percent}
     </div>
   </div>
-</div>
+</Link>
 </>
   )
 }
