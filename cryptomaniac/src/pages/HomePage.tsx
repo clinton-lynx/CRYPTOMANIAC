@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
+import BlogCard from "../components/BlogCard";
 
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
@@ -93,6 +94,7 @@ const HomePage = () => {
   return (
     <>
       <div className="header-wrapper">
+         
         <Header
           handler={handleChange}
           slideHandler={mobileNavSlide}
@@ -102,25 +104,25 @@ const HomePage = () => {
       </div>
       <main className="main">
         <ul className="mobile-menu">
+        <li className="mobile-menu-list-item-wrapper">
+            <NavLink to="" className="mobile-menu-list-item">
+              home
+            </NavLink>
+          </li>
           <li className="mobile-menu-list-item-wrapper">
-            <a href="" className="mobile-menu-list-item">
+            <NavLink to="/news-listing" className="mobile-menu-list-item">
               cryptonews
-            </a>
+            </NavLink>
           </li>
           <li className="mobile-menu-list-item-wrapper">
-            <a href="" className="mobile-menu-list-item">
+            <NavLink  to="/news-listing" className="mobile-menu-list-item">
               currency coverter
-            </a>
+            </NavLink>
           </li>
           <li className="mobile-menu-list-item-wrapper">
-            <a href="" className="mobile-menu-list-item">
+            <NavLink to="/article" className="mobile-menu-list-item">
               about
-            </a>
-          </li>
-          <li className="mobile-menu-list-item-wrapper">
-            <a href="" className="mobile-menu-list-item">
-              suscribe
-            </a>
+            </NavLink>
           </li>
         </ul>
         <div className="sections-wrapper">
@@ -130,6 +132,7 @@ const HomePage = () => {
               <div className="crypto-card-wrapper">
                 {trendCoins.map((coin: any) => (
                   <CryptoCard
+                  coinId={coin.item.id}
                     name={coin.item?.name}
                     logo={coin.item.large}
                     subtitle={coin.item.symbol}
@@ -195,73 +198,17 @@ const HomePage = () => {
             </div>
           </section>
           <div className="bottom-section">
-            <section className="currency-converter">
-                          <h1 className="section-currency">currency converter</h1>
-              <form action="" className="converter-form">
-                <div className="first-currency">
-                  <label htmlFor="input1">amount</label>
-                  <input className="input" type="text" name="input1" required />
-                  <select name="coin" className="primary-input">
-                    <option value="btc">btc</option>
-                    <option value="xrp">xrp</option>
-                    <option value="get">get</option>
-                    <option value="loco">loco</option>
-                    <option value="qwe">qwe</option>
-                  </select>
-                </div>
-                <div className="arrow-sign-wrapper">
-                  <img
-                    src="https://crypto.com/price/icons/swap-vertical.svg"
-                    alt="arrow sign"
-                  />
-                </div>
-                <div className="second-currency">
-                  <label htmlFor="input2">currency</label>
-                  <input className="input" type="text" name="input2" required />
-                  <select name="coin" className="secondary-input">
-                    <option value="btc">usd</option>
-                    <option value="xrp">xrp</option>
-                    <option value="get">get</option>
-                    <option value="loco">loco</option>
-                    <option value="qwe">qwe</option>
-                  </select>
-                </div>
-              </form>
-              <div className="result-wrapper">
-                <p className="result-currency">1btc = 0.03usd</p>
-              </div>
-                          <div className="currency-converter-right">
-                <h1 className="section-currency-title">exchange rate</h1>
-                <p className="exchange-rate">1btc = 0.03usd</p>
-              </div>
-            </section>
-              {/* </div> */}
-            <section className="news-feed">
-              <h1 className="section-currency">Cryptomaniac NewsFeed</h1>
-              <ul className="news-feed-list">
-                <li className="news-feed-wrapper">
-                  <Link to="/">ljfkjflsfsljf</Link>
-                </li>
-                <li className="news-feed-wrapper">
-                  <Link to="/">jflsfjlsfjslf</Link>
-                </li>
-                <li className="news-feed-wrapper">
-                  <Link to="/">k;sk;sfk</Link>
-                </li>
-                <li className="news-feed-wrapper">
-                  <Link to="/">jflsfjlsfjlsfj</Link>
-                </li>
-                <li className="news-feed-wrapper">
-                  <Link to="/">lsjdldfjouoeuowuols</Link>
-                </li>
-                <li className="news-feed-wrapper">
-                  <Link to="/">lsjdldfjouoeuowuols</Link>
-                </li>
-                <li className="news-feed-wrapper">
-                  <Link to="/">lsjdldfjouoeuowuols</Link>
-                </li>
-              </ul>
-            </section>
+          <section className="sections-wrapper"> 
+      <h3  className="card-listing-title">Latest crypto news</h3>
+<div className="card-listings">
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
+     
+    
+      </div>
+      </section>
           </div>
         </div>
       </main>

@@ -86,7 +86,21 @@
 
     @include flex-row-between-nowrap;
 }
-
+.market-details-list--menu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: .875rem 0;
+    .market-details-list-item-wrapper{
+    color:#A0A9BE;
+    font-size: .875rem;
+        .global-stats-value{
+            font-size: 1.1rem;
+            color: #fff;
+        }
+    }
+}
 .nav-right{
 
     @include flex-row-between-nowrap;

@@ -22,6 +22,7 @@ function App() {
     <Routes>
        <Route path='/' element={<HomePage />} >
         <Route path='trends' element={<Trends />} />
+        <Route index  element={<AllCoins />} />
         <Route path='all-coins' element={<AllCoins />} />
         <Route path='NFTs' element={<NFTs />} />
         
@@ -29,7 +30,7 @@ function App() {
         </Route>
        <Route path='/news-listing' element={<NewsListing />} />
        <Route path='/news-listing/article' element={<Article />} />
-       <Route path='/coin' element={<Crypto />} />
+       <Route path='all-coins/:coin' element={<Crypto />} />
      
       </Routes>
      </BrowserRouter>

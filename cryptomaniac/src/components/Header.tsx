@@ -49,6 +49,16 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     </div>
   </div>
     <hr className='horizontal' />
+     <div className="market-details">
+      <ul className="market-details-list--menu">
+        <li className="market-details-list-item-wrapper">Global stats: <span className="global-stats-value">$124266163B</span></li>
+        <li className="market-details-list-item-wrapper">Global stats: <span className="global-stats-value">$124266163B</span></li>
+        <li className="market-details-list-item-wrapper">Global stats: <span className="global-stats-value">$124266163B</span></li>
+        <li className="market-details-list-item-wrapper">Global stats: <span className="global-stats-value">$124266163B</span></li>
+        <li className="market-details-list-item-wrapper">Global stats: <span className="global-stats-value">$124266163B</span></li>
+      </ul>
+    </div>
+    <hr className='horizontal' />
     <div className="header-filters">
 
       <span className="categories">Categories: All coins<span className="dropdown"><DropDown/></span> </span>
