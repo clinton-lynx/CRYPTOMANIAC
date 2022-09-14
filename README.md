@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# CryptoCreep 
+
+This is a cryptocurrency  app built using **React 18**,**Redux**, **SCSS** and **Typescript**. Consolidating RESTFUL calls from the **CoinGecko API** into the React application to get cryptocurrency data such as live prices, trading volume, exchange volumes, historical data, crypto categories, images, and more.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+1. Realtime Data from CoinGacko API
+2. Filter for specific categories of coins
+3. Search for a coin
+4. Get specific coin data including charts
+5. Get Latest Cryptocurrency news from accredited sources
+6. Convert cryptocurrency with Realtime Exchange Exchange rate
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Dark mode:
 
-### `npm run build`
+![plot](https://github.com/BobsProgrammingAcademy/Cryptocurrency-Dashboard/blob/main/public/dark_mode.png?raw=true)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Light mode:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![plot](https://github.com/BobsProgrammingAcademy/Cryptocurrency-Dashboard/blob/main/public/light_mode.png?raw=true)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📚 Getting Started
+To get a local copy up and running follow the following steps.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 👇🏽 Prerequisites
 
-## Learn More
+Before installation, please make sure you have already installed the following tools:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Git](https://git-scm.com/downloads)
+- [NodeJs](https://nodejs.org/en/download/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🛠️ Installation
+
+1. [Fork](https://github.com//clinton-lynx/cryptomaniac/fork) the project. Click on the fork icon in the top right to get started  
+2. Clone the project, you can use the following command:
+    ```bash
+    git clone https://github.com/<your-github-username>/cryptomaniac
+    ```
+
+3. Navigate to the project directory
+   ```bash
+   cd CRYPTOMANIAC
+   ```
+
+4. Install dependencies with `npm install`
+   ```bash
+   npm install
+   ```
+
+5. Run npm start in both folders also
+
+   ```bash
+   npm start
+   ```
+> Both ends of the project rely on each other, for you to work on any end(client or server) they both need to be started with `npm start`
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## 🎨 Demo
+
+Check out the website: [Cryptomaniac](https://anon-chat-app.vercel.app/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
