@@ -12,38 +12,19 @@ footer.main-footer {
       max-width: 1444px;
       padding: 3.5rem 1rem;
       .top-left {
-        display: flex;
-        align-items: flex-start;
+        max-width: 750px;
         width: 100%;
-        .footer-list-items {
-          width: 60%;
-          margin: 0 1%;
-          @include breakpoint-down(744px) {
-            width: 48%;
-            margin-top: 2rem;
-          }
-            @include breakpoint-down(375px) {
-          width: 100%;
-          margin-top: 2rem;
+        .list-item-header {
+          font-weight: 600;
+          font-size: 1.25rem;
+          line-height: 1.5rem;
         }
+      
         
         }
-        li {
-          list-style: none;
-          &.list-item-header {
-            font-weight: 600;
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-            // color: $white;
-            margin-bottom: 2rem;
-            @include breakpoint-down(375px){
-              font-size: 1rem;
-              margin-bottom: .45rem;
-              width: 100%;
-            }
-          }
+      
          
-        }
+        
         @include breakpoint-custom-down(650) {
           flex-wrap: wrap;
         }
@@ -184,7 +165,7 @@ footer.main-footer {
         }
       }
     }
-  }
+  
   
   .about-project{
     font-size: 1rem;

@@ -42,13 +42,9 @@ const NewsListing = () => {
               cryptonews
             </NavLink>
           </li>
+
           <li className="mobile-menu-list-item-wrapper">
-            <NavLink  to="/news-listing" className="mobile-menu-list-item">
-              currency coverter
-            </NavLink>
-          </li>
-          <li className="mobile-menu-list-item-wrapper">
-            <NavLink to="/article" className="mobile-menu-list-item">
+            <NavLink to="/about" className="mobile-menu-list-item">
               about
 
 

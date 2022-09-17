@@ -114,13 +114,9 @@ const HomePage = () => {
               cryptonews
             </NavLink>
           </li>
+         
           <li className="mobile-menu-list-item-wrapper">
-            <NavLink  to="/news-listing" className="mobile-menu-list-item">
-              currency coverter
-            </NavLink>
-          </li>
-          <li className="mobile-menu-list-item-wrapper">
-            <NavLink to="/article" className="mobile-menu-list-item">
+            <NavLink to="/about" className="mobile-menu-list-item">
               about
             </NavLink>
           </li>
@@ -153,7 +149,10 @@ const HomePage = () => {
           </section>
 
           <section className="trends">
+            <div className="coin-listing-wrapper">
             <h1 className="section-title">today`s crypto market</h1>
+                  <div className="coin-listing__toogle">toogle view</div>
+            </div>
             <nav>
               <div className="guide__nav-wrapper">
                 <ul className="guide__nav-list">
@@ -199,7 +198,7 @@ const HomePage = () => {
           </section>
           <div className="bottom-section">
           <section className="sections-wrapper"> 
-      <h3  className="card-listing-title">Latest crypto news</h3>
+         <h3  className="card-listing-title">Latest crypto news</h3>
 <div className="card-listings">
       <BlogCard />
       <BlogCard />

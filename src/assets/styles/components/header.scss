@@ -25,6 +25,7 @@
 }
 .nav-logo h1{
     font-size: 1.65rem;
+    color: #fff;
     font-weight: normal;
     text-transform: capitalize;
 }
@@ -72,12 +73,15 @@
     margin-right: 1rem;
      a{
     color:#A0A9BE;
-    font-size: .75rem;
+    font-size: .975rem;
     text-transform: capitalize;
     .coins-figure{
         color:#fff;
         font-size: .875rem;
     }
+}
+.global-stats-value{
+    margin-left: .235rem;
 }
 }
 
@@ -85,6 +89,18 @@
 .market-details-list{
 
     @include flex-row-between-nowrap;
+}
+
+.market-details--menu{
+    padding-inline-start: 40px; 
+    padding-inline-start: 40px; 
+    padding-inline-end: 40px;
+    max-width:1444px;
+    margin:0 auto;
+    @include breakpoint-down(744px){
+        display: none;
+    }
+    
 }
 .market-details-list--menu{
     display: flex;
@@ -95,8 +111,10 @@
     .market-details-list-item-wrapper{
     color:#A0A9BE;
     font-size: .875rem;
+    text-transform: capitalize;
+
         .global-stats-value{
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #fff;
         }
     }

@@ -4,55 +4,60 @@ import Header from "../components/Header";
 
 import "../assets/styles/pages/coin.scss";
 import Footer from "../components/footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import BlogCard from "../components/BlogCard";
 
 const Crypto = () => {
 
   const params = useParams();
   const coin = params.coin;
 
-   const [coinDetails, setCoinDetails] = useState([]);
+  const [coinDetails, setCoinDetails] :any = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await axios(
-       `https://api.coingecko.com/api/v3/coins/${coin}`
-        );
-        console.log(response);
-        const data = response.data;
-        console.log(data);
-        
+        `https://api.coingecko.com/api/v3/coins/${coin}`
+      );
+      console.log(response);
+      const data = response.data;
+      console.log(data);
       setCoinDetails(data);
     } catch (error: any) {
       console.log(error.response);
     }
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     fetchData();
-    console.log(coin);
-    
-  }, [])
+    console.log(coinDetails);
+
+  },[])
+
+  const coinDetailsDev = coinDetails
 
 
   return (
     <>
       <Header />
       <main className="main">
-          <div className="coin-wrapper">
+        
+        <div className="coin-wrapper">
           <div className="coin-chart-section">
             <div className="coin-name-wrapper">
-              <div className="coin-logo-wrapper"></div>
-              <h3 className="coin-name">Bitcoin</h3>
-              <span className="coin-symbol">BTC</span>
+              <div className="coin-logo-wrapper">
+                <img src={coinDetailsDev.image?.small} alt="coin-logo" />
+                </div>
+              <h3 className="coin-name">{coinDetails.name}</h3>
+              <span className="coin-symbol">{coinDetails.symbol}</span>
             </div>
 
             <div className="coin-chart-wrapper">
               <div className="coin-price-wrapper">
-                <h2 className="coin-price">$0.001232 USD</h2>
-                <span className="coin-price-per">+0.004%</span>
+                <h2 className="coin-price">${coinDetailsDev.market_data?.current_price.usd}</h2>
+                <span className="coin-price-per">{coinDetailsDev.market_data?.price_change_percentage_24h}% <span className="time">[24H]</span> </span> 
                 <div className="chart-wrapper">
-                  <span className="chart-title">bitcoin price chart</span>
+                  <span className="chart-title">{coinDetails.name} price chart</span>
                 </div>
                 <div className="coin-chart-image">
                   <svg
@@ -822,8 +827,54 @@ const Crypto = () => {
             </div>
           </div>
         </div>
+
+        <div className="coin__bottom-cointainer">
+          
         <section className="about-coin-container">
-         <h2 className="section-title">about btc</h2>
+          <h2 className="section-title">about {coinDetails.name}</h2>
+          <h3 className="coin__title">what is {coinDetails.name}</h3>
+          <p className="coin__description">{coinDetails.description?.en}</p>
+        </section>
+            <div className="coin-info-wrapper">
+          <section className="coin__info">
+            <h2 className="section-title"> {coinDetails.name} price stats</h2>
+            <h5 className="section__description"> {coinDetails.name} current price</h5>
+            <ul className="coin__info-list">
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left"> price </span><span className="coin__info-list-item-right">${coinDetails.market_data?.current_price.usd}</span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">24H Low / 24H High</span><span className="coin__info-list-item-right">${coinDetails.market_data?.low_24h?.usd} / ${coinDetails.market_data?.high_24h?.usd}</span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">price change % 24H</span><span className="coin__info-list-item-right">{coinDetails.market_data?.price_change_percentage_24h}%  </span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">Trading volume</span><span className="coin__info-list-item-right">${coinDetails.market_data?.total_volume?.usd}</span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">market cap rank</span><span className="coin__info-list-item-right">#{coinDetails.market_data?.market_cap_rank}</span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">market cap</span><span className="coin__info-list-item-right"></span>${coinDetails.market_data?.market_cap?.usd}</li>
+              
+            </ul>
+          </section>
+          <section className="coin__info">
+            <h2 className="section-title"> {coinDetails.name} info</h2>
+            <h5 className="section__description"> {coinDetails.name} references</h5>
+            <ul className="coin__info-list">
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left"> website </span><span className="coin__info-list-item-right"><a target="_blank" href={coinDetails.links?.homepage[0]} className="coin__info-list-item-right-crumb">{coinDetails.name}.org</a></span></li> 
+
+            
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">blockchain sites</span><span className="coin__info-list-item-right"><a target="_blank" href={coinDetails.links?.blockchain_site[0]} className="coin__info-list-item-right-crumb">mintscan</a><a target="_blank" href={coinDetails.links?.blockchain_site[2]} className="coin__info-list-item-right-crumb">etherscan</a> </span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">communities</span><span className="coin__info-list-item-right"><a target="_blank" href={coinDetails.links?.chat_url[0]} className="coin__info-list-item-right-crumb">discord</a><span className="coin__info-list-item-right-crumb">github</span><span className="coin__info-list-item-right-crumb">reddit</span></span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">source code</span><span className="coin__info-list-item-right"><a target="_blank" href={coinDetails.links?.repos_url?.bitbucket[0]} className="coin__info-list-item-right-crumb">github</a><a target="_blank" href={coinDetails.links?.repos_url?.github[0]} className="coin__info-list-item-right-crumb">github</a></span></li>
+              <li className="coin__info-list-item"><span className="coin__info-list-item-left">tags</span><span className="coin__info-list-item-right"><span className="coin__info-list-item-right-crumb">cryptocurrency</span></span></li>
+            </ul>
+          </section>
+          </div>
+        </div>
+
+        <section className="sections-wrapper">
+          <h3 className="card-listing-title">Latest crypto news</h3>
+          <div className="card-listings">
+            <BlogCard />
+            <BlogCard />
+            <BlogCard />
+            <BlogCard />
+
+
+          </div>
         </section>
       </main>
       <Footer />

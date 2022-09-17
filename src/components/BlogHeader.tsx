@@ -18,7 +18,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
       <ul className="market-details-list">
         <li className="market-details-list-item-wrapper"><NavLink to="/">Home</NavLink></li>
         <li className="market-details-list-item-wrapper"><NavLink to="/news-listing">Cryptonews</NavLink></li>
-        <li className="market-details-list-item-wrapper"><NavLink to="/article">Currency converter</NavLink></li>
+        <li className="market-details-list-item-wrapper"><NavLink to="/about">about</NavLink></li>
     
       </ul>
     </div>

@@ -7,23 +7,16 @@ const Footer = () => {
       <footer className="main-footer">
         <div className="footer-top">
           <div className="top-left">
-            <ul className="footer-list-items">
-              <li className="list-item-header">Cryptomaniac</li>
-                <li className="about-project">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam magni sunt, quas nulla aliquid eius facilis architecto quo omnis voluptas? Perferendis laudantium temporibus eum esse ex dolores aut quibusdam laboriosam.
-                </li>
-            </ul>
 
+            <h2 className="list-item-header">Cryptomaniac</h2>
+            <p className="about-cryptomaniac">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam magni sunt, quas nulla aliquid eius facilis architecto quo omnis voluptas? Perferendis laudantium temporibus eum esse ex dolores aut quibusdam laboriosam.
+            </p>
           </div>
-          <div className="top-right">
-            <div className="newsletter-head">Newsletter</div>
-            <div className="input-btn">
-              <input type="email" placeholder="email" />
-              <button>Subscribe</button>
-            </div>
-  
-            
-          </div>
+
+
+
+
         </div>
         <div className="bottom-wrapper">
           <div className="footer-bottom">
@@ -31,7 +24,7 @@ const Footer = () => {
               <span className="copyright-text">Copyright © 2022 Cryptomaniac</span>
             </div>
             <div className="bottom-right">
-             
+
               <span className="social-icon">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
