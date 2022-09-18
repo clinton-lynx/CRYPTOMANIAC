@@ -18,11 +18,21 @@
     .card {
         align-items: flex-start;
         display: flex;
+        max-width:330px;
         flex-direction: column;
     }
 
 
-    .card__type-wrapper .card__type {
+    .card__type-wrapper{ 
+        margin: .5rem 0;
+        .card__type {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            // max-width:200px;;
+            width:inherit;                                                                                                                                                                                                                      
+
+            
         padding-left: 15px;
         text-transform: uppercase;
         // color: #757575;
@@ -35,6 +45,7 @@
         font-weight: 500;
         line-height: 1.4;
     }
+}
 }
 
 .card__image-wrapper {
@@ -54,16 +65,19 @@
 
 
 .card__title-wrapper {
+    // max-height: 70px;
 
     .card__title {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 400;
-        line-height: 24px;
-        color: #131313;
-        color: #fff;
+            width: 300px;
+          line-height: 24px;
+            color: #fff;
         padding: 0 .75rem;
-        text-transform: capitalize;
-    }
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+            }
 }
 
 
@@ -72,11 +86,15 @@
 
     .card__truncated-text {
         color: #000;
+            // max-width:20px;
+            // white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         font-weight: 400;
         letter-spacing: .18px;
         margin-bottom: 25px;
         color: #b9bacd;
-        font-size: 1rem;
+        font-size: .875rem;
         letter-spacing: .1px;
     }
 }

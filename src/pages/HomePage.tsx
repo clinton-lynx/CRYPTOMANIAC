@@ -13,8 +13,8 @@ const HomePage = () => {
   const [trendCoins, setTrendingCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
-  const currentSlide = slide ? "translateX(433px)" : "translateX(0px)";
-  const bodyRide = slide ? "auto" : "hidden";
+  const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
+  const bodyRide = slide ? "hidden" : "auto";
 
   const handleChange = (e: any) => {
     setSearch(e.target.value);
@@ -54,10 +54,16 @@ const HomePage = () => {
     carousel.scrollLeft = carousel.scrollLeft + 300;
     console.log("clicked foreward");
   };
+
+  // ON PAGE RENDERING
+
   useEffect(() => {
     fetchData();
     fetchTrendingData();
+    // setSlide(false);
   }, []);
+
+
   const filteredCoins = coins.filter((coin: any) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -115,11 +121,11 @@ const HomePage = () => {
             </NavLink>
           </li>
          
-          <li className="mobile-menu-list-item-wrapper">
+          {/* <li className="mobile-menu-list-item-wrapper">
             <NavLink to="/about" className="mobile-menu-list-item">
               about
             </NavLink>
-          </li>
+          </li> */}
         </ul>
         <div className="sections-wrapper">
           <section className="trends">
@@ -133,7 +139,7 @@ const HomePage = () => {
                     logo={coin.item.large}
                     subtitle={coin.item.symbol}
                     price={`$${coin.item.price_btc.toFixed(2)}`}
-                    percent={`${coin.item.market_cap_change_rank}%`}
+                    percent={`#${coin.item.market_cap_rank}`}
                   />
                 ))}
               </div>
@@ -150,7 +156,7 @@ const HomePage = () => {
 
           <section className="trends">
             <div className="coin-listing-wrapper">
-            <h1 className="section-title">today`s crypto market</h1>
+            <h1 className="section-title">today's crypto market</h1>
                   <div className="coin-listing__toogle">toogle view</div>
             </div>
             <nav>
@@ -187,6 +193,7 @@ const HomePage = () => {
             <div className="crypto-card-wrapper--today">
               {filteredCoins.map((coin: any) => (
                 <CryptoCard
+                coinId={coin.id} 
                   name={coin.name}
                   logo={coin.image}
                   subtitle={coin.symbol}
@@ -200,10 +207,10 @@ const HomePage = () => {
           <section className="sections-wrapper"> 
          <h3  className="card-listing-title">Latest crypto news</h3>
 <div className="card-listings">
+      {/* <BlogCard />
       <BlogCard />
       <BlogCard />
-      <BlogCard />
-      <BlogCard />
+      <BlogCard /> */}
      
     
       </div>

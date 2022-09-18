@@ -1,4 +1,5 @@
 import React from "react"
+import { MainLogo } from "../assets/icons/icons"
 import "../assets/styles/components/footer.scss"
 
 const Footer = () => {
@@ -8,13 +9,13 @@ const Footer = () => {
         <div className="footer-top">
           <div className="top-left">
 
-            <h2 className="list-item-header">Cryptomaniac</h2>
+            <h2 className="list-item-header"><span className="crptomaniac-logo"><MainLogo /></span>Cryptomaniac</h2>
             <p className="about-cryptomaniac">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam magni sunt, quas nulla aliquid eius facilis architecto quo omnis voluptas? Perferendis laudantium temporibus eum esse ex dolores aut quibusdam laboriosam.
+            This is a cryptocurrency  app built using React 18,Redux,SCSS and Typescript. Consolidating RESTFUL calls from CoinGecko API into the React application to get cryptocurrency data such as live prices, trading volume, exchange volumes, historical data, crypto categories, images, and more...
             </p>
           </div>
 
-
+ 
 
 
         </div>
@@ -25,7 +26,7 @@ const Footer = () => {
             </div>
             <div className="bottom-right">
 
-              <span className="social-icon">
+              <a href="https://www.linkedin.com/in/clintonlynx/" className="social-icon">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20Z"
@@ -43,8 +44,8 @@ const Footer = () => {
                     </clipPath>
                   </defs>
                 </svg>{" "}
-              </span>
-              <span className="social-icon">
+              </a>
+              <a href='' className="social-icon">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20Z"
@@ -55,8 +56,8 @@ const Footer = () => {
                     fill="#26333F"
                   />
                 </svg>{" "}
-              </span>
-              <span className="social-icon">
+              </a>
+              <a href='https://twitter.com/clinton_lynx' className="social-icon">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20Z"
@@ -67,7 +68,7 @@ const Footer = () => {
                     fill="#26333F"
                   />
                 </svg>
-              </span>
+              </a>
             </div>
           </div>
         </div>

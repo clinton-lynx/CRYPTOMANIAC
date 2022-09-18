@@ -10,7 +10,7 @@ import AllCoins from './components/AllCoins';
 import NFTs from './components/NFTs';
 import RecentlyAdded from './components/RecentlyAdded';
 import Crypto from './pages/Crypto';
-import About from './pages/About';
+// import About from './pages/About';
 
 
 
@@ -29,7 +29,7 @@ function App() {
         <Route path='recently-added' element={<RecentlyAdded />} />
         </Route>
        <Route path='/news-listing' element={<NewsListing />} />
-       <Route path='/about' element={<About />} />
+       {/* <Route path='/about' element={<About />} /> */}
        <Route path='all-coins/:coin' element={<Crypto />} />
      
       </Routes>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-
+import axios from 'axios'
 import BlogCard from '../components/BlogCard'
 import Header from '../components/BlogHeader'
 import Footer from '../components/footer'
@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 const NewsListing = () => {
   const [slide, setSlide] = useState(false)
   const currentSlide = slide ? "translateX(433px)" : "translateX(0px)";
-  const bodyRide = slide ? "auto" : "hidden";
+  const bodyRide = slide ? "hidden" : "auto";
    const mobileNavSlide = () => {
     setSlide((prev) => !prev);
     const mobileNav = document.querySelector(".mobile-menu") as HTMLElement;
@@ -20,7 +20,39 @@ const NewsListing = () => {
     console.log("slide werey");
     console.log(slide);
   };
+const [news, setNews] : any = useState([])
 
+
+ 
+
+const options = {
+  method: 'GET',
+  url: 'https://bing-news-search1.p.rapidapi.com/news/search',
+  params: {
+    q: 'crypto',
+    count: '100',
+    freshness: 'Day',
+    textFormat: 'Raw',
+    safeSearch: 'Off'
+  },
+  headers: {
+    'X-BingApis-SDK': 'true',
+    'X-RapidAPI-Key': '31068d680cmshd80b954efa430c5p1d7b8bjsn34ff62722862',
+    'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+  }
+};
+
+useEffect(()=>{
+  axios.request(options).then(function (response) {
+    // console.log(response.data);
+     setNews(response.data.value);
+  }).catch(function (error) {
+    console.error(error);
+  });
+
+}, [])
+
+console.log(news);
 
   return (
     <>
@@ -42,22 +74,28 @@ const NewsListing = () => {
               cryptonews
             </NavLink>
           </li>
-
-          <li className="mobile-menu-list-item-wrapper">
+          {/* <li className="mobile-menu-list-item-wrapper">
             <NavLink to="/about" className="mobile-menu-list-item">
-              about
-
-
-
-
-          
+              about       
             </NavLink>
-          </li>
+          </li> */}
         </ul>
          </div>
         <section className="sections-wrapper"> 
       <h3  className="card-listing-title">browse our blog</h3>
-<div className="card-listings">
+      <div className="card-listings">
+          {news.map((news :any)  =>(
+            <BlogCard 
+               cardUrl={news.url}
+               source={news.provider[0].name} 
+               title={news.name} 
+               image={news.image?.thumbnail?.contentUrl} 
+               description={news.description} 
+               releaseTime={news.datePublished} 
+               /> 
+          ))}
+
+      {/* <BlogCard />
       <BlogCard />
       <BlogCard />
       <BlogCard />
@@ -65,8 +103,7 @@ const NewsListing = () => {
       <BlogCard />
       <BlogCard />
       <BlogCard />
-      <BlogCard />
-      <BlogCard />
+      <BlogCard /> */}
     
       </div>
       </section>

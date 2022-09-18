@@ -2,11 +2,7 @@
 
 
 
-.header-wrapper{
-  // position:sticky;
-  // top: 0;
-  // left:0;
-}
+
 .main{
   background-color: #1c122b;
   color:#fff;
@@ -20,13 +16,13 @@
  .mobile-menu{
         position:absolute;
         background-color:$dark-blue;
-        transform: translateX(433px);
+        transform: translateX(100000px);
         transition: all .4s ease-in-out;
         padding:1.5rem .875rem;
         top:60px;
         right:0;
         width:100%;
-        max-width:400px;
+        // max-width:400px;
         height:100vh;
         z-index:50000000000000;
         .mobile-menu-list-item-wrapper{
@@ -55,11 +51,11 @@
 
     .section-title{
         text-transform: capitalize;
-        font-size: 2rem;
+        font-size: 1.25rem;
         margin-bottom: .875rem;
         font-weight: 400;
         @include breakpoint-down(744px){
-          font-size: 1.25rem;
+          font-size: 1rem;
           margin-bottom: .45rem;
         
         }
@@ -115,15 +111,23 @@
 }
 }
 .trends{
-    margin-top: 3rem;
+    margin-top: 2rem;
     .coin-listing-wrapper{
       @include flex-row-between-nowrap;
     }
 }
 
+@include breakpoint-down(400px){
+  .guide__nav-wrapper,.coin-listing__toogle{
+    display: none;
+  }
+}
 
 .guide__nav-line{
   margin-bottom: 1rem;
+  @include breakpoint-down(400px){
+         display: none;
+     }
 }
 .guide__nav-list {
     @include flex-row-start-nowrap;
