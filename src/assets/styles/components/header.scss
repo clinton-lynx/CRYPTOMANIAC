@@ -9,7 +9,7 @@
 .header{
     background-color:$dark-blue;
    
-    position: sticky;
+    // position: sticky;
     top: 0px;
     z-index: 1100;
     color:#fff;
@@ -39,14 +39,14 @@
     @include flex-row-between-nowrap; 
     height:3.5rem;
     padding-inline-start: 40px; 
-    padding-inline-start: 40px; 
-    padding-inline-end: 40px;
+    padding-inline-start: 15px; 
+    padding-inline-end: 15px;
     max-width:1444px;
     margin:0 auto;
     @include breakpoint-down(475px){
         
         padding-inline-start: 40px; 
-        padding-inline-start: 12px; 
+        padding-inline-start: 0px; 
         padding-inline-end: 0px;
 }
 }

@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 
 const NewsListing = () => {
   const [slide, setSlide] = useState(false)
+  const [search, setSearch] = useState("");
   const currentSlide = slide ? "translateX(433px)" : "translateX(0px)";
   const bodyRide = slide ? "hidden" : "auto";
    const mobileNavSlide = () => {
@@ -22,7 +23,9 @@ const NewsListing = () => {
   };
 const [news, setNews] : any = useState([])
 
-
+const handleChange = (e: any) => {
+  setSearch(e.target.value);
+};
  
 
 const options = {
@@ -54,10 +57,15 @@ useEffect(()=>{
 
 console.log(news);
 
+
+const filteredNews =  news.filter((news: any) =>
+    news.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
      <Header
-        
+        handler={handleChange}
           slideHandler={mobileNavSlide}
           
         />
@@ -68,6 +76,11 @@ console.log(news);
             <NavLink to="/" className="mobile-menu-list-item">
               home
             </NavLink>
+          </li>
+          <li className="mobile-menu-list-item-wrapper">
+            <NavLink to="/dashboard" className="mobile-menu-list-item">
+              cryptodashboard
+            </NavLink> 
           </li>
           <li className="mobile-menu-list-item-wrapper">
             <NavLink to="/news-listing" className="mobile-menu-list-item">
@@ -84,7 +97,7 @@ console.log(news);
         <section className="sections-wrapper"> 
       <h3  className="card-listing-title">browse our blog</h3>
       <div className="card-listings">
-          {news.map((news :any)  =>(
+          {filteredNews.map((news :any)  =>(
             <BlogCard 
                cardUrl={news.url}
                source={news.provider[0].name} 

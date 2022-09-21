@@ -9,7 +9,7 @@
     padding:3rem 2.5rem;  
   overflow:hidden; 
     @include breakpoint-down(375px){
-      padding:20px 15px;
+      padding:15px 10px;
     }
 }
 
@@ -215,8 +215,12 @@
   font-size: 14px;
 }
 
+.card-listing-title{
+  margin:1.5rem 0;
+}
+
 .bottom-section{
-  @include flex-row-center-wrap;
+  // @include flex-row-center-wrap;
   align-items:flex-start;
   .section-currency-title{
     margin-top: 2rem;

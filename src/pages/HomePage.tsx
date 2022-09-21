@@ -7,10 +7,13 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
 import BlogCard from "../components/BlogCard";
+import millify from "millify";
 
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
   const [trendCoins, setTrendingCoins] = useState([]);
+  const [news, setNews]: any = useState([])
+
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
@@ -22,7 +25,7 @@ const HomePage = () => {
   const fetchData = async () => {
     try {
       const response = await axios(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false"
       );
       console.log(response);
       const data = response.data;
@@ -34,6 +37,42 @@ const HomePage = () => {
     }
   };
 
+
+
+
+  const filteredNews = news.filter((news: any) =>
+    news.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+
+  const options = {
+    method: 'GET',
+    url: 'https://bing-news-search1.p.rapidapi.com/news/search',
+    params: {
+      q: 'crypto',
+      count: '4',
+      freshness: 'Day',
+      textFormat: 'Raw',
+      safeSearch: 'Off'
+    },
+    headers: {
+      'X-BingApis-SDK': 'true',
+      'X-RapidAPI-Key': '31068d680cmshd80b954efa430c5p1d7b8bjsn34ff62722862',
+      'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+    }
+  };
+
+  useEffect(() => {
+    axios.request(options).then(function (response) {
+      // console.log(response.data);
+      setNews(response.data.value);
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+  }, [])
+
+
   const fetchTrendingData = async () => {
     try {
       const response = await axios(
@@ -41,7 +80,7 @@ const HomePage = () => {
       );
       setTrendingCoins(response.data.coins);
       console.log(response.data.coins);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const scrollBack = () => {
@@ -100,7 +139,7 @@ const HomePage = () => {
   return (
     <>
       <div className="header-wrapper">
-         
+
         <Header
           handler={handleChange}
           slideHandler={mobileNavSlide}
@@ -110,9 +149,14 @@ const HomePage = () => {
       </div>
       <main className="main">
         <ul className="mobile-menu">
-        <li className="mobile-menu-list-item-wrapper">
+          <li className="mobile-menu-list-item-wrapper">
             <NavLink to="" className="mobile-menu-list-item">
               home
+            </NavLink>
+          </li>
+          <li className="mobile-menu-list-item-wrapper">
+            <NavLink to="/dashboard" className="mobile-menu-list-item">
+              Cryptodashboard
             </NavLink>
           </li>
           <li className="mobile-menu-list-item-wrapper">
@@ -120,12 +164,6 @@ const HomePage = () => {
               cryptonews
             </NavLink>
           </li>
-         
-          {/* <li className="mobile-menu-list-item-wrapper">
-            <NavLink to="/about" className="mobile-menu-list-item">
-              about
-            </NavLink>
-          </li> */}
         </ul>
         <div className="sections-wrapper">
           <section className="trends">
@@ -134,7 +172,7 @@ const HomePage = () => {
               <div className="crypto-card-wrapper">
                 {trendCoins.map((coin: any) => (
                   <CryptoCard
-                  coinId={coin.item.id}
+                    coinId={coin.item.id}
                     name={coin.item?.name}
                     logo={coin.item.large}
                     subtitle={coin.item.symbol}
@@ -156,8 +194,8 @@ const HomePage = () => {
 
           <section className="trends">
             <div className="coin-listing-wrapper">
-            <h1 className="section-title">today's crypto market</h1>
-                  <div className="coin-listing__toogle">toogle view</div>
+              <h1 className="section-title">today's crypto market</h1>
+              <div className="coin-listing__toogle">toogle view</div>
             </div>
             <nav>
               <div className="guide__nav-wrapper">
@@ -193,28 +231,37 @@ const HomePage = () => {
             <div className="crypto-card-wrapper--today">
               {filteredCoins.map((coin: any) => (
                 <CryptoCard
-                coinId={coin.id} 
+                  coinId={coin.id}
                   name={coin.name}
                   logo={coin.image}
                   subtitle={coin.symbol}
-                  price={`$${coin.current_price}`}
-                  percent={`${coin.market_cap_change_percentage_24h}%`}
+                  price={`$${millify(coin.current_price, {
+                    precision: 2
+                  })}`}
+                  percent={`${millify(coin.market_cap_change_percentage_24h, {
+                    precision: 3
+                  })}%`}
                 />
               ))}
             </div>
           </section>
           <div className="bottom-section">
-          <section className="sections-wrapper"> 
-         <h3  className="card-listing-title">Latest crypto news</h3>
-<div className="card-listings">
-      {/* <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard /> */}
-     
-    
-      </div>
-      </section>
+            <section className="sections-wrapper">
+              <h1 className="card-listing-title">Latest crypto news</h1>
+              <div className="card-listings">
+                {filteredNews.map((news: any) => (
+                  <BlogCard
+                    cardUrl={news.url}
+                    source={news.provider[0].name}
+                    title={news.name}
+                    image={news.image?.thumbnail?.contentUrl}
+                    description={news.description}
+                    releaseTime={news.datePublished}
+                  />
+                ))}
+
+              </div>
+            </section>
           </div>
         </div>
       </main>

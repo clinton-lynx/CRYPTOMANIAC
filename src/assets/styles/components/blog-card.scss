@@ -9,7 +9,7 @@
     background-color: rgba(17, 153, 250, 0.05);
 
     height: auto;
-    // min-height: 420px;
+    // max-height: 220px;
     // padding: 28.8px 0 22px 0;
 
 
@@ -18,7 +18,7 @@
     .card {
         align-items: flex-start;
         display: flex;
-        max-width:330px;
+        // max-width:330px;
         flex-direction: column;
     }
 
@@ -29,8 +29,13 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-            // max-width:200px;;
-            width:inherit;                                                                                                                                                                                                                      
+            max-width:100px;
+            width:inherit;        
+                       display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;                                                                                                                                                                                                              
 
             
         padding-left: 15px;
@@ -53,11 +58,14 @@
     height: 100%;
     object-fit: cover;
     width: 100%;
-
+    
     img {
         max-width: 100%;
         width: inherit;
         height: inherit;
+        @include breakpoint-down(744px){
+            display: none;
+        }
     }
 
 }
@@ -70,13 +78,16 @@
     .card__title {
         font-size: 1rem;
         font-weight: 400;
-            width: 300px;
+          max-width: 300px;
           line-height: 24px;
             color: #fff;
         padding: 0 .75rem;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         overflow: hidden;
+        text-overflow: ellipsis;
+              
             }
 }
 
@@ -86,16 +97,18 @@
 
     .card__truncated-text {
         color: #000;
-            // max-width:20px;
-            // white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+       
         font-weight: 400;
         letter-spacing: .18px;
         margin-bottom: 25px;
         color: #b9bacd;
         font-size: .875rem;
         letter-spacing: .1px;
+        display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     }
 }
 
