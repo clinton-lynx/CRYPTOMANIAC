@@ -45,9 +45,10 @@
   color: #a0a9be;
 }
 .crypto-price {
-  font-size: 22px;
+  font-size: 1.1rem ;
   font-weight: 500;
-  font-weight: var(--chakra-fontWeights-medium);
+  // color:green;
+ 
   will-change: transform;
   transition-property: color;
   transition-duration: 1.5s;

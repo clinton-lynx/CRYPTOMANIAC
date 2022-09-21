@@ -8,6 +8,7 @@ import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
 import BlogCard from "../components/BlogCard";
 import millify from "millify";
+import moment from "moment";
 
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
@@ -256,7 +257,8 @@ const HomePage = () => {
                     title={news.name}
                     image={news.image?.thumbnail?.contentUrl}
                     description={news.description}
-                    releaseTime={news.datePublished}
+                    releaseTime={moment(news.datePublished,"YYYYMMDD").fromNow()} 
+
                   />
                 ))}
 

@@ -8,7 +8,7 @@
   color:#fff;
     padding:3rem 2.5rem;  
   overflow:hidden; 
-    @include breakpoint-down(375px){
+    @include breakpoint-down(400px){
       padding:15px 10px;
     }
 }

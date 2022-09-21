@@ -127,13 +127,7 @@ const Dashboard = () => {
                                     </label>
                                 </div>
                             </th>
-                            <th className="assets__tableHeading">
-                                <div className="heading__contentWrapper">
-                                    <label className="heading__content">
-                                        Chart
-                                    </label>
-                                </div>
-                            </th>
+                           
                                                    </tr>
                     </thead>
                     <tbody className="assets__table-body">

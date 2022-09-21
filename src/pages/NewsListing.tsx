@@ -5,6 +5,7 @@ import Header from '../components/BlogHeader'
 import Footer from '../components/footer'
 import '../assets/styles/pages/news-listing.scss'
 import { NavLink } from 'react-router-dom'
+import moment from 'moment'
 
 const NewsListing = () => {
   const [slide, setSlide] = useState(false)
@@ -104,7 +105,7 @@ const filteredNews =  news.filter((news: any) =>
                title={news.name} 
                image={news.image?.thumbnail?.contentUrl} 
                description={news.description} 
-               releaseTime={news.datePublished} 
+               releaseTime={moment(news.datePublished,"YYYYMMDD").fromNow()} 
                /> 
           ))}
 

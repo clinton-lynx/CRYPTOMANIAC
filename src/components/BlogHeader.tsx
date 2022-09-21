@@ -39,9 +39,9 @@ const Header = ({ handler, slideHandler, searchSideEffect, blur }: any) => {
               </div>
             </form>
           </div>
-          <div className="nav-right__btn-wrapper">
+          {/* <div className="nav-right__btn-wrapper">
             <button className="nav-right__suscribe">suscribe</button>
-          </div>
+          </div> */}
           <div className="nav-right__theme-toogle">
             <LightMode />
           </div>
