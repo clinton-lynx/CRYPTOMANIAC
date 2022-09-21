@@ -18,6 +18,16 @@ footer.main-footer {
           font-weight: 600;
           font-size: 1.25rem;
           line-height: 1.5rem;
+          margin-bottom: 1rem;
+          @include breakpoint-down(744px){
+            font-size: 1rem;    
+          }
+        }
+        .about-cryptomaniac{
+          font-size: 1rem;
+          @include breakpoint-down(744px){
+            font-size: .875rem;    
+          } 
         }
       
         

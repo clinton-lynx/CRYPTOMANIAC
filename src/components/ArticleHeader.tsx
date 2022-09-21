@@ -1,47 +1,86 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { DropDown, Hamburger, LightMode, MainLogo, MobileSearch, Search } from '../assets/icons/icons';
-import { NavLink} from 'react-router-dom';
+import millify from 'millify';
+import {Link, NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
-import '../assets/styles/components/article-header.scss';
 
 const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
  
+  const [stats, setStats] : any = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios(
+        "https://api.coingecko.com/api/v3/global"
+        );
+        console.log(response);
+        const data = response.data;
+        console.log(data);
+              setStats(data);
+    } catch (error: any) {
+      console.log(error.response);
+    }
+  };
+
+  useEffect(()=> {
+    fetchData();
+  }, [])
+
 
  
   return (
  <header className="header">
   <div className="nav-wrapper">
     <div className="nav-left">
-      <div className="nav-logo"><span className="crptomaniac-logo"><MainLogo /></span><h1 className="nav-logo--title">cryptomaniac</h1></div>
-  
-    </div>
-    <div className="nav-right">
+      <Link to='/' className="nav-logo"><span className="crptomaniac-logo"><MainLogo /></span><h1 className="nav-logo--title">cryptomaniac</h1></Link>
     <nav>
-    <div className="article-market-details">
+    <div className="market-details">
       <ul className="market-details-list">
         <li className="market-details-list-item-wrapper"><NavLink to="/">Home</NavLink></li>
+        <li className="market-details-list-item-wrapper">
+            <NavLink to="/dashboard" >
+              Cryptodashboard
+            </NavLink>
+          </li>
         <li className="market-details-list-item-wrapper"><NavLink to="/news-listing">Cryptonews</NavLink></li>
-        <li className="market-details-list-item-wrapper"><NavLink to="/article">Currency converter</NavLink></li>
-    
-      </ul>
+        {/* <li className="market-details-list-item-wrapper"><NavLink to="/article">Currency converter</NavLink></li> */}
+        {/* <li className="market-details-list-item-wrapper"><NavLink to="/about">about</NavLink></li> */}
+          </ul>
     </div>
     </nav>
-      <div className="nav-right__btn-wrapper">
-    <button className="nav-right__suscribe">suscribe</button>
     </div>
+    <div className="nav-right">
+    {/* <div className='nav-right__form-wrapper'>
+        <form action="" className="form">
+            <input type="text" className="input-text" placeholder='Search coins' onChange={handler} onFocus={searchSideEffect} onBlur={blur} />
+            <div className="search">
+      <Search />
+    </div> */}
+        {/* </form>
+    </div> */}
+   
     <div className="nav-right__theme-toogle">
       <LightMode />
     </div>
      <div className="nav-right__search-icon-wrapper">
       <MobileSearch />
     </div>
-    <div className="article-nav-right__menu-wrapper"  onClick={slideHandler}>
+    <div className="nav-right__menu-wrapper"  onClick={slideHandler}>
       <Hamburger />
      
     </div>
     </div>
   </div>
+    <hr className='horizontal' />
+     <div className="market-details--menu">
+      <ul className="market-details-list--menu">
+        <li className="market-details-list-item-wrapper">coins: <span className="global-stats-value">{millify(stats.data?.active_cryptocurrencies)}</span></li>
+        <li className="market-details-list-item-wrapper">market cap: <span className="global-stats-value">${millify(stats.data?.total_market_cap?.usd)}</span></li>
+        <li className="market-details-list-item-wrapper">total volume: <span className="global-stats-value">${millify(stats.data?.total_volume.usd)}</span></li>
+        <li className="market-details-list-item-wrapper">24H market cap: <span className="global-stats-value">{millify(stats.data?.market_cap_percentage?.btc)}%</span></li>
+              </ul>
+    </div>
     <hr className='horizontal' />
     <div className="header-filters">
 
@@ -49,7 +88,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
       <hr className='vertical'/>
     </div>
     <hr className='horizontal' />
-    
+   
  
  </header>
   )

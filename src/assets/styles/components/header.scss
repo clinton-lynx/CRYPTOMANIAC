@@ -9,7 +9,7 @@
 .header{
     background-color:$dark-blue;
    
-    position: sticky;
+    // position: sticky;
     top: 0px;
     z-index: 1100;
     color:#fff;
@@ -39,14 +39,14 @@
     @include flex-row-between-nowrap; 
     height:3.5rem;
     padding-inline-start: 40px; 
-    padding-inline-start: 40px; 
-    padding-inline-end: 40px;
+    padding-inline-start: 15px; 
+    padding-inline-end: 15px;
     max-width:1444px;
     margin:0 auto;
     @include breakpoint-down(475px){
         
         padding-inline-start: 40px; 
-        padding-inline-start: 12px; 
+        padding-inline-start: 0px; 
         padding-inline-end: 0px;
 }
 }
@@ -126,7 +126,7 @@
     
     .market-details{
         margin-left: 1.5rem;
-        @include breakpoint-down(1280px){
+        @include breakpoint-down(768px){
             display:none;
         }
     }
@@ -149,7 +149,7 @@
                     background: transparent;
                     border:none;
                     width:80%;
-                    font-size: 1rem;
+                    font-size: .876rem;
                     text-transform: capitalize;
                     color:#fff;
                     padding:.475rem .215rem;
@@ -222,7 +222,7 @@
         &:hover{
             background:rgba(255, 255,255,0.16)
         }
-        @include breakpoint-down(1280px){
+        @include breakpoint-down(128000px){
             display:none;
         }
     }
@@ -236,7 +236,7 @@
         &:hover{
             background:rgba(255, 255,255,0.16)
         }
-        @include breakpoint-up(1280px){
+        @include breakpoint-up(768px){
             display:none;
         }
 
@@ -308,8 +308,3 @@ hr{
             color: #fff;
         }
     }
-.nav-right__menu-wrapper{
-    // position:relative;
-
-  
-}

@@ -1,0 +1,343 @@
+@import '../main';
+
+
+
+
+
+
+$white: #fff;
+$gray60: gray;
+$green: green;
+$secondary-gray: grey;
+$red-negative: red;
+$green-positive: greenyellow;
+.crypto-table{
+    color: #fff;
+}
+.price__section {
+    position: relative;
+
+    .price__section-wrapper {
+        display: flex;
+        flex-shrink: 0;
+        width: 100%;
+        margin: 0 auto;
+        flex-direction: column;
+        max-width: 1142px;
+        border: 1px solid rgba(91,97,110,0.2);
+        border-radius: 4px;
+        box-shadow: 0 4px 12px 0 rgba(50,53,61,0.02);
+
+        .assets__table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-left: 0px;
+            // border-right: 0px;
+            // border-radius: 0px;
+            // margin-top: -1px;
+
+            .assets__table {
+                width: 100%;
+                background-color: rgba(17, 153, 250, 0.05);
+                  border-collapse: separate;
+                caption-side: top;
+
+                .assets__table-head {
+                    border-spacing: 0;
+
+                    .assets__table-row {
+                        border-top: 1px solid rgba(91,97,110,0.2);
+                        border-bottom: 5px solid rgba(91,97,110,0.2);
+
+                        .assets__tableHeading {
+                            padding: 16px 48px 16px 0px;
+                            text-align: left;
+                            border-bottom: none;
+
+                            .heading__contentWrapper {
+                                display: flex;
+                                align-items: center;
+                                text-align: left;
+
+                                .heading__content {
+                                    width: auto;
+                                    font-weight: 400;
+                                    white-space: nowrap;
+                                    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                                    font-size: 14px;
+                                    line-height: 1.6;
+                                    color: $gray60;
+                                }
+                            }
+                        }
+
+                        .assets--firstHeading {
+                            padding-left: 32px;
+                        }
+
+                        .assets--lastHeading {
+                            padding-right: 32px;
+                        }
+                    }
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+
+                .assets__table-body {
+                    border: none;
+                    transform: translateZ(0px);
+                    transition: opacity 300ms ease 0s;
+
+                    .assets__tableBody-row {
+  background-color: rgba(17, 153, 250, 0.05);
+                        user-select: none;
+
+                        &:hover {
+                            background: rgba(50,53,61,0.02);
+                        }
+
+                        .assets__tableBody-Data {
+                            padding: 14px 48px 14px 0px;
+                            padding-left: 32px;
+                            border-top: 1px solid rgba(91,97,110,0.2);
+                            cursor: default;
+                            position: relative;
+                            width: 85px;
+
+                            .assets__tableBody-span {
+                                text-align: left;
+                                line-height: 1.3;
+                                color: $gray60;
+                                font-size: 18px;
+                                font-weight: 400;
+                                font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                            }
+
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
+                        .assets-name--tableData {
+                            min-width: 140px;
+                            cursor: pointer;
+                            border-top: 1px solid rgba(91,97,110,0.2);
+
+                            .assets-name__link {
+                                display: flex;
+                                flex: 1 1 auto;
+                                align-items: center;
+                                flex-direction: row;
+                                color: $white;
+                                cursor: pointer;
+                                font-size: 16px;
+                                text-decoration: none;
+                                background-color: transparent;                               
+                                                         
+
+                                .crypto-table .assets__logo {
+                                    width: unset;
+
+                                    .assets__image {
+                                        flex-shrink: 0;
+                                        border-radius: 100%;
+                                    }
+                                }
+
+                                
+                            }
+
+                            @include tablet {
+                                padding: 14px 24px 14px 0px;
+                                padding-left: 24px;
+                            }
+                        }    
+                    }
+
+                    .assets__rates {
+                        padding: 14px 48px 14px 0px;
+                        border-top: 1px solid rgba(91,97,110,0.2);
+                        cursor: default;
+                        width: 232px;
+
+                        .assets-rate__InnerWrapper {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+
+                            .assets__price {
+                                text-align: left;
+                                line-height: 1.3;
+                                color: $white;
+                                font-weight: 400;
+                                font-size: 18px;
+                                font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                                @include mobile {
+                                    text-align: right;
+                                }
+                            }
+
+                           
+
+                            @include tablet {
+                                flex-direction: column;
+                                align-items: flex-end;
+                            }
+                        }
+
+                        @include tablet {
+                            padding: 14px 20px 14px 0px;
+                        }
+                    }
+
+                    .assets-price__change {
+                        padding: 14px 48px 14px 0px;
+                        border-top: 1px solid rgba(91,97,110,0.2);
+                        cursor: default;
+                        width: 100px;
+                        margin-right: 20px;
+                        text-align: left;
+
+                        .assets-price__changeContent {
+                            width: 100%;
+                            text-align: right;
+                            font-variant-numeric: tabular-nums;
+                            line-height: 1.3;
+                            color: #00a68c;
+                            // color:red;
+                            font-size: 18px;
+                            font-weight: 400;
+                            font-family:  CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                        }
+
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+
+                    .assets__charts {
+                        border-top: 1px solid rgba(91,97,110,0.2);
+                        cursor: default;
+                        width: 100px;
+                        padding: 5px 25px 5px 5px;
+
+                        .SparkLine__Svg-sc-9wg5ja-0 {
+                            display: block;
+                            width: 100%;
+                            fill: none;
+
+                            .SparkLine__Path-sc-9wg5ja-1 {
+                                stroke-width: 1.7;
+                                stroke: rgb(137,144,158);
+                                pointer-events: none;
+                            }
+                        }
+                        
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+
+                    .buy__button {
+                        width: 70px;
+                        padding: 14px 48px 14px 0px;
+                        border-top: 1px solid rgba(91,97,110,0.2);
+                        cursor: default;
+                        padding-right: 32px;
+
+                        .buy__buttonWraper {
+                            padding: 8px 16px;
+                            white-space: nowrap;
+                            position: relative;
+                            width: auto;
+                            margin: 0px;
+                            border-radius: 4px;
+                            color: $white;
+                            cursor: pointer;
+                            font-size: 14px;
+                            border: 1px solid $green-positive;
+                            background-color: $green-positive;
+
+                            .buy__buttonContent {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                pointer-events: none;
+                                flex-wrap: nowrap;
+                                white-space: nowrap;
+                                font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                                font-weight: 500;
+                            }
+                        }
+                        
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include tablet {
+            border: none;
+        }
+    }
+}
+
+
+.assets__name {
+    padding-left: .4rem;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    .assets__nameContent {
+        padding-left: 16px;
+        text-align: left;
+        line-height: 1.3;
+        color: $white;
+        text-decoration: none;
+        font-size: 1rem;
+        display: inline;
+        font-weight: 400;
+        font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+
+    .assets__nameAbbreviation {
+        @extend  .assets__nameContent;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: #A0aede;
+        font-size: .875rem;
+        
+    }
+
+    @include tablet {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.price__percentage {
+    display: none;
+    line-height: 1.3;
+    color: #00a68c;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+    @include tablet {
+        display: block;
+    }
+}
+.AssetTableRow__ReorderListIconContainer{
+    width:16px;
+}
+.coin-image{
+    padding-left: .45rem;
+    width: 33px;
+    display: inline;
+}

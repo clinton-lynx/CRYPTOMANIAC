@@ -23,6 +23,30 @@ FULL BACKGROUND CONTAIN DISPLAY
   object-fit: contain;
 }
 
+
+
+
+ $tablet: 768px;
+$mobile: 560px;
+$large-tablet: 1170px;
+ @mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin large-tablet {
+    @media (max-width: $large-tablet) {
+        @content;
+    }
+}
+
 /* ====================
 FULL WIDTH AND HEIGHT
 ======================= */

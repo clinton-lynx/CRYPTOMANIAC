@@ -1,4 +1,4 @@
-# CryptoCreep 
+# CryptoManiac
 
 This is a cryptocurrency  app built using **React 18**,**Redux**, **SCSS** and **Typescript**. Consolidating RESTFUL calls from the **CoinGecko API** into the React application to get cryptocurrency data such as live prices, trading volume, exchange volumes, historical data, crypto categories, images, and more.
 
@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. Filter for specific categories of coins
 3. Search for a coin
 4. Get specific coin data including charts
-5. Get Latest Cryptocurrency news from accredited sources
+5. Get Latest Cryptocurrency news from reliable sources
 6. Convert cryptocurrency with Realtime Exchange Exchange rate
 
 
@@ -66,12 +66,12 @@ Before installation, please make sure you have already installed the following t
    ```
 > Both ends of the project rely on each other, for you to work on any end(client or server) they both need to be started with `npm start`
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ## 🎨 Demo
 
-Check out the website: [Cryptomaniac](https://anon-chat-app.vercel.app/)
+Check out the website: [Cryptomaniac](/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
