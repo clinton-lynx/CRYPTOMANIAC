@@ -1,10 +1,9 @@
 
-import React, { useEffect, useState } from "react";
-import CryptoCard from "../components/CryptoCard";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../assets/styles/pages/homepage.scss";
 import Footer from "../components/footer";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Table from "../components/Table";
 
@@ -25,7 +24,7 @@ const Dashboard = () => {
       );
       console.log(response);
       const data = response.data;
-      console.log(data);
+      console.log(data); 
 
       setCoins(data);
     } catch (error: any) {

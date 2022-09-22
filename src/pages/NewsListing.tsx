@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import BlogCard from '../components/BlogCard'
 import Header from '../components/BlogHeader'

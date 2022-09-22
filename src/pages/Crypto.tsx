@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import Header from "../components/ArticleHeader";
-import Chart from "../components/chart";
 import "../assets/styles/pages/coin.scss";
 import Footer from "../components/footer";
-import { Link, NavLink, useParams } from "react-router-dom";
+import {  NavLink, useParams } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
 import millify from "millify";
-import HTMLReactParser from 'html-react-parser';
 import { Line } from 'react-chartjs-2';
-import parse, { HTMLReactParserOptions, Element } from 'html-react-parser';
+import parse from 'html-react-parser';
 
 
 import {
@@ -148,7 +146,7 @@ const optionsChart = {
   const fetchMArketChart = async () => {
     try {
       const response = await axios(
-        `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=1`
+        `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=7`
       );
       console.log(response);
       const data = response.data;
