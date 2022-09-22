@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
-  const bodyRide = slide ? "hidden" : "auto";
+  const bodyRide = slide ? "auto" : "hidden";
   const handleChange = (e: any) => {
     setSearch(e.target.value);
   };
@@ -71,9 +71,8 @@ const Dashboard = () => {
           percent={`${coin.market_cap_change_percentage_24h}%`}
         />
       ))} */}
-      <main className="main">
-      <div className="mobile-ref-wrapper" >
-        <ul className="mobile-menu" >
+<div className="container-wrapper">
+<ul className="mobile-menu" >
         <li className="mobile-menu-list-item-wrapper">
             <NavLink to="/" className="mobile-menu-list-item">
               home
@@ -90,6 +89,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
                </ul>
+      <main className="main">
+      <div className="mobile-ref-wrapper" >
+       
          </div>
       <div className="price__section">
         <div className="price__section-wrapper">
@@ -150,6 +152,7 @@ const Dashboard = () => {
         </main>
 
     <Footer/>
+    </div>
     
     </>
   )

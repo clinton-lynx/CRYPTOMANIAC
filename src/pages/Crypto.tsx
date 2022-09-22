@@ -52,7 +52,7 @@ const Crypto = () => {
 
 const [slide, setSlide] = useState(false);
 const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
-const bodyRide = slide ? "hidden" : "auto";
+const bodyRide = slide ? "auto" : "hidden";
 
 const mobileNavSlide = () => {
   setSlide((prev) => !prev);
@@ -183,10 +183,10 @@ const optionsChart = {
         <Header
           slideHandler={mobileNavSlide}
         />
-      <main className="main">
+     <div className="container-wrapper">
       <ul className="mobile-menu">
           <li className="mobile-menu-list-item-wrapper">
-            <NavLink to="" className="mobile-menu-list-item">
+            <NavLink to="/" className="mobile-menu-list-item">
               home
             </NavLink>
           </li>
@@ -201,6 +201,7 @@ const optionsChart = {
             </NavLink>
           </li>
         </ul>
+      <main className="main">
         <div className="coin-wrapper">
           <div className="coin-chart-section">
             <div className="coin-name-wrapper">
@@ -290,6 +291,7 @@ const optionsChart = {
         </section>
       </main>
       <Footer />
+      </div>
     </>
   );
 };

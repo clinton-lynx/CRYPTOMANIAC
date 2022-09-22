@@ -18,7 +18,7 @@ const HomePage = () => {
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
-  const bodyRide = slide ? "hidden" : "auto";
+  const bodyRide = slide ? "auto" : "hidden";
 
   const handleChange = (e: any) => {
     setSearch(e.target.value);
@@ -148,8 +148,8 @@ const HomePage = () => {
           blur={searchSecondSideEffect}
         />
       </div>
-      <main className="main">
-        <ul className="mobile-menu">
+      <div className="container-wrapper">
+              <ul className="mobile-menu">
           <li className="mobile-menu-list-item-wrapper">
             <NavLink to="" className="mobile-menu-list-item">
               home
@@ -166,6 +166,8 @@ const HomePage = () => {
             </NavLink>
           </li>
         </ul>
+      <main className="main">
+       
         <div className="sections-wrapper">
           <section className="trends">
             <h1 className="section-title">top trends</h1>
@@ -268,6 +270,8 @@ const HomePage = () => {
         </div>
       </main>
       <Footer />
+      </div>
+
     </>
   );
 };

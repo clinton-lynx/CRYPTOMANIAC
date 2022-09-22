@@ -6,11 +6,18 @@
 .main{
   background-color: #1c122b;
   color:#fff;
-    padding:3rem 2.5rem;  
+    padding:3rem 2.5rem; 
+    position: relative; 
   overflow:hidden; 
+  overflow-x:hidden;
+
     @include breakpoint-down(400px){
       padding:15px 10px;
     }
+}
+.container-wrapper{
+  position: relative;
+  overflow: hidden      ;
 }
 
  .mobile-menu{
@@ -19,7 +26,7 @@
         transform: translateX(100000px);
         transition: all .4s ease-in-out;
         padding:1.5rem .875rem;
-        top:60px;
+        top:0px;
         right:0;
         width:100%;
         // max-width:400px;
