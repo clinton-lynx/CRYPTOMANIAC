@@ -52,7 +52,7 @@ const Crypto = () => {
 
 const [slide, setSlide] = useState(false);
 const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
-const bodyRide = slide ? "auto" : "hidden";
+const bodyRide = slide ? "hidden" : "auto";
 
 const mobileNavSlide = () => {
   setSlide((prev) => !prev);

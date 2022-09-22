@@ -11,7 +11,8 @@ const NewsListing = () => {
   const [slide, setSlide] = useState(false)
   const [search, setSearch] = useState("");
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
-  const bodyRide = slide ? "auto" : "hidden";
+  const bodyRide = slide ? "hidden" : "auto";
+
    const mobileNavSlide = () => {
     setSlide((prev) => !prev);
     const mobileNav = document.querySelector(".mobile-menu") as HTMLElement;

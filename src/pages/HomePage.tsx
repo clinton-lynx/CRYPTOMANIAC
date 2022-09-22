@@ -18,7 +18,7 @@ const HomePage = () => {
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
-  const bodyRide = slide ? "auto" : "hidden";
+  const bodyRide = slide ? "hidden" : "auto";
 
   const handleChange = (e: any) => {
     setSearch(e.target.value);
