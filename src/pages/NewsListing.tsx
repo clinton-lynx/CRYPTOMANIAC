@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import BlogCard from '../components/BlogCard'
 import Header from '../components/BlogHeader'
@@ -10,8 +10,9 @@ import moment from 'moment'
 const NewsListing = () => {
   const [slide, setSlide] = useState(false)
   const [search, setSearch] = useState("");
-  const currentSlide = slide ? "translateX(433px)" : "translateX(0px)";
+  const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
   const bodyRide = slide ? "hidden" : "auto";
+
    const mobileNavSlide = () => {
     setSlide((prev) => !prev);
     const mobileNav = document.querySelector(".mobile-menu") as HTMLElement;
@@ -70,7 +71,7 @@ const filteredNews =  news.filter((news: any) =>
           slideHandler={mobileNavSlide}
           
         />
-      <main className="main">
+        <div className="container-wrapper">
          <div className="mobile-ref-wrapper" >
         <ul className="mobile-menu" >
         <li className="mobile-menu-list-item-wrapper">
@@ -88,13 +89,9 @@ const filteredNews =  news.filter((news: any) =>
               cryptonews
             </NavLink>
           </li>
-          {/* <li className="mobile-menu-list-item-wrapper">
-            <NavLink to="/about" className="mobile-menu-list-item">
-              about       
-            </NavLink>
-          </li> */}
-        </ul>
+                </ul>
          </div>
+      <main className="main">
         <section className="sections-wrapper"> 
       <h3  className="card-listing-title">browse our blog</h3>
       <div className="card-listings">
@@ -123,6 +120,7 @@ const filteredNews =  news.filter((news: any) =>
       </section>
       </main>
       <Footer />
+      </div>
     </>
   )
 }

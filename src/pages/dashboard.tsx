@@ -1,10 +1,9 @@
 
-import React, { useEffect, useState } from "react";
-import CryptoCard from "../components/CryptoCard";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../assets/styles/pages/homepage.scss";
 import Footer from "../components/footer";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Table from "../components/Table";
 
@@ -15,6 +14,7 @@ const Dashboard = () => {
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
   const bodyRide = slide ? "hidden" : "auto";
+  
   const handleChange = (e: any) => {
     setSearch(e.target.value);
   };
@@ -25,7 +25,7 @@ const Dashboard = () => {
       );
       console.log(response);
       const data = response.data;
-      console.log(data);
+      console.log(data); 
 
       setCoins(data);
     } catch (error: any) {
@@ -72,9 +72,8 @@ const Dashboard = () => {
           percent={`${coin.market_cap_change_percentage_24h}%`}
         />
       ))} */}
-      <main className="main">
-      <div className="mobile-ref-wrapper" >
-        <ul className="mobile-menu" >
+<div className="container-wrapper">
+<ul className="mobile-menu" >
         <li className="mobile-menu-list-item-wrapper">
             <NavLink to="/" className="mobile-menu-list-item">
               home
@@ -91,6 +90,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
                </ul>
+      <main className="main">
+      <div className="mobile-ref-wrapper" >
+       
          </div>
       <div className="price__section">
         <div className="price__section-wrapper">
@@ -151,6 +153,7 @@ const Dashboard = () => {
         </main>
 
     <Footer/>
+    </div>
     
     </>
   )

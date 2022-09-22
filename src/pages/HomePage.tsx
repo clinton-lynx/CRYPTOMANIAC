@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CryptoCard from "../components/CryptoCard";
 import Header from "../components/Header";
 import "../assets/styles/pages/homepage.scss";
 import Footer from "../components/footer";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import axios from "axios";
 import { ScrollBack, ScrollForward } from "../assets/icons/icons";
 import BlogCard from "../components/BlogCard";
@@ -148,8 +148,8 @@ const HomePage = () => {
           blur={searchSecondSideEffect}
         />
       </div>
-      <main className="main">
-        <ul className="mobile-menu">
+      <div className="container-wrapper">
+              <ul className="mobile-menu">
           <li className="mobile-menu-list-item-wrapper">
             <NavLink to="" className="mobile-menu-list-item">
               home
@@ -166,6 +166,8 @@ const HomePage = () => {
             </NavLink>
           </li>
         </ul>
+      <main className="main">
+       
         <div className="sections-wrapper">
           <section className="trends">
             <h1 className="section-title">top trends</h1>
@@ -268,6 +270,8 @@ const HomePage = () => {
         </div>
       </main>
       <Footer />
+      </div>
+
     </>
   );
 };

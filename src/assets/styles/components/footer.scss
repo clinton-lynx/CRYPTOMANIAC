@@ -28,13 +28,9 @@ footer.main-footer {
           @include breakpoint-down(744px){
             font-size: .875rem;    
           } 
+        }   
         }
-      
-        
-        }
-      
-         
-        
+                       
         @include breakpoint-custom-down(650) {
           flex-wrap: wrap;
         }
