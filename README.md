@@ -77,7 +77,7 @@ Before installation, please make sure you have already installed the following t
 
 ## 🎨 Demo
 
-Check out the website: [Cryptomaniac](/https://cryptomaniak.netlify.app/)
+Check out the website: [Cryptomaniac](https://cryptomaniak.netlify.app/)
 
 
 
