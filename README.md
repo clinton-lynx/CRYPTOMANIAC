@@ -24,7 +24,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### coin details page:
 
-![plot](https://github.com/BobsProgrammingAcademy/Cryptocurrency-Dashboard/blob/main/public/light_mode.png?raw=true)
+![Screenshot 2022-09-21 141135](https://user-images.githubusercontent.com/104448657/191950939-2dd69ee3-72be-4179-b28e-b03d3ce452a9.png)
+
+### coin table list:
+
+
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
