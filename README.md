@@ -18,11 +18,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Screenshots
 
 
-### Dark mode:
+### Home page:
 
-![plot](https://github.com/BobsProgrammingAcademy/Cryptocurrency-Dashboard/blob/main/public/dark_mode.png?raw=true)
+![Screenshot 2022-09-21 140511](https://user-images.githubusercontent.com/104448657/191950484-7dec862f-6038-4a11-bcfa-7a6ddd8d8309.png)
 
-### Light mode:
+### coin details page:
 
 ![plot](https://github.com/BobsProgrammingAcademy/Cryptocurrency-Dashboard/blob/main/public/light_mode.png?raw=true)
 
