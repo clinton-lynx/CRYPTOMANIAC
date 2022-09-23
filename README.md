@@ -26,9 +26,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ![Screenshot 2022-09-21 141135](https://user-images.githubusercontent.com/104448657/191950939-2dd69ee3-72be-4179-b28e-b03d3ce452a9.png)
 
-### coin table list:
+### coin table list page:
 
 ![Screenshot 2022-09-21 140606](https://user-images.githubusercontent.com/104448657/191951187-4207ea0d-ace0-4463-b518-7dc11ca83e8f.png)
+
+### news list page:
+
 
 
 
