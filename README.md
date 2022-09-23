@@ -53,7 +53,7 @@ Before installation, please make sure you have already installed the following t
 1. [Fork](https://github.com//clinton-lynx/cryptomaniac/fork) the project. Click on the fork icon in the top right to get started  
 2. Clone the project, you can use the following command:
     ```bash
-    git clone https://github.com/<your-github-username>/cryptomaniac
+    git clone https://github.com/<your-github-username>/CRYPTOMANIAC
     ```
 
 3. Navigate to the project directory
@@ -77,7 +77,7 @@ Before installation, please make sure you have already installed the following t
 
 ## 🎨 Demo
 
-Check out the website: [Cryptomaniac](/)
+Check out the website: [Cryptomaniac](/https://cryptomaniak.netlify.app/)
 
 
 
