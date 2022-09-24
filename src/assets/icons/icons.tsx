@@ -56,7 +56,7 @@ export function Search() {
   
    export function MainLogo() {
     return (
-    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.7 51.7" width="36px" height="32px"><title>Crypto Logos Logo</title><path d="M317.78,373.93a25.84,25.84,0,1,1-34.86,11,25.85,25.85,0,0,1,34.86-11h0Z" transform="translate(-280 -371)" style={
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.7 51.7" width="36px" height="32px"><title>Cryptomaniac</title><path d="M317.78,373.93a25.84,25.84,0,1,1-34.86,11,25.85,25.85,0,0,1,34.86-11h0Z" transform="translate(-280 -371)" style={
       {
   "fill": "rgba(17, 153, 250, 0.05)",
   "fillRule": "evenodd"
