@@ -6,10 +6,12 @@ import Footer from "../components/footer";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Table from "../components/Table";
+import Preloader from "../components/preloader";
 
 const Dashboard = () => {
 
   const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState("");
   const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
@@ -26,8 +28,8 @@ const Dashboard = () => {
       console.log(response);
       const data = response.data;
       console.log(data); 
-
       setCoins(data);
+      setLoading(false)
     } catch (error: any) {
       console.log(error.response);
     }
@@ -94,9 +96,13 @@ const Dashboard = () => {
       <div className="mobile-ref-wrapper" >
        
          </div>
+         {loading ? (
+                      <Preloader /> 
+                    ): (
       <div className="price__section">
         <div className="price__section-wrapper">
             <div className="assets__table-wrapper">
+         
                 <table className="assets__table">
                     <colgroup><col style={{width:"32px"}}></col></colgroup>
                     <thead className="assets__table-head">
@@ -132,6 +138,8 @@ const Dashboard = () => {
                            
                                                    </tr>
                     </thead>
+                  
+
                     <tbody className="assets__table-body">
                     {filteredCoins.map((coin: any) => (
                 <Table
@@ -146,10 +154,11 @@ const Dashboard = () => {
               ))}
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </div>
-       
+           )}
         </main>
 
     <Footer/>

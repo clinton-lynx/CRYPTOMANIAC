@@ -4,10 +4,12 @@ import { DropDown, Hamburger, LightMode, MainLogo, MobileSearch, Search } from '
 import millify from 'millify';
 import {Link, NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
+import Preloader from './preloader';
 
 const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
  
   const [stats, setStats] : any = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -18,6 +20,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
         const data = response.data;
         console.log(data);
               setStats(data);
+              setLoading(false)
     } catch (error: any) {
       console.log(error.response);
     }
@@ -73,6 +76,9 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
     </div>
   </div>
     <hr className='horizontal' />
+    {loading ? (
+            <Preloader /> 
+          ): (
      <div className="market-details--menu">
       <ul className="market-details-list--menu">
         <li className="market-details-list-item-wrapper">coins: <span className="global-stats-value">{millify(stats.data?.active_cryptocurrencies)}</span></li>
@@ -81,6 +87,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur}: any) => {
         <li className="market-details-list-item-wrapper">24H market cap: <span className="global-stats-value">{millify(stats.data?.market_cap_percentage?.btc)}%</span></li>
               </ul>
     </div>
+          )}
     <hr className='horizontal' />
     <div className="header-filters">
 
