@@ -9,9 +9,11 @@ import { ScrollBack, ScrollForward } from "../assets/icons/icons";
 import BlogCard from "../components/BlogCard";
 import millify from "millify";
 import moment from "moment";
+import Preloader from "../components/preloader";
 
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
+  const [loading, setLoading] =useState(true)
   const [trendCoins, setTrendingCoins] = useState([]);
   const [news, setNews]: any = useState([])
 
@@ -33,6 +35,7 @@ const HomePage = () => {
       console.log(data);
 
       setCoins(data);
+      setLoading(false);
     } catch (error: any) {
       console.log(error.response);
     }
@@ -169,6 +172,9 @@ const HomePage = () => {
       <main className="main">
        
         <div className="sections-wrapper">
+        {loading ? (
+            <Preloader /> 
+          ): (
           <section className="trends">
             <h1 className="section-title">top trends</h1>
             <div className="crypto-card-carousel">
@@ -194,7 +200,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
-
+          )}
           <section className="trends">
             <div className="coin-listing-wrapper">
               <h1 className="section-title">today's crypto market</h1>
@@ -231,6 +237,9 @@ const HomePage = () => {
             </nav>
             <div className="guide__nav-line"></div>
             <Outlet />
+            {loading ? (
+            <Preloader /> 
+          ): (
             <div className="crypto-card-wrapper--today">
               {filteredCoins.map((coin: any) => (
                 <CryptoCard
@@ -247,6 +256,7 @@ const HomePage = () => {
                 />
               ))}
             </div>
+          )}
           </section>
           <div className="bottom-section">
             <section className="sections-wrapper">

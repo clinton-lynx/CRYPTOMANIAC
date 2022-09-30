@@ -22,6 +22,7 @@ import {
   Legend,
 } from 'chart.js';
 import moment from "moment";
+import Preloader from "../components/preloader";
 // import { Line } from 'react-chartjs-2';
 
 
@@ -41,7 +42,7 @@ ChartJS.register(
 
 
 const Crypto = () => {
-  
+  const [loading, setLoading] = useState(true)
   const [coinDetails, setCoinDetails]: any = useState([]);
   const [chartData, setChartData]: any = useState([]);
   const [news, setNews]: any = useState([])
@@ -138,6 +139,7 @@ const optionsChart = {
       const data = response.data;
       console.log(data);
       setCoinDetails(data);
+      setLoading(false);
     } catch (error: any) {
       console.log(error.response);
     }
@@ -202,6 +204,9 @@ const optionsChart = {
           </li>
         </ul>
       <main className="main">
+      {loading ? (
+                      <Preloader /> 
+                    ): (
         <div className="coin-wrapper">
           <div className="coin-chart-section">
             <div className="coin-name-wrapper">
@@ -231,13 +236,21 @@ const optionsChart = {
             </div>
           </div>
         </div>
+           )}
+         
         <div className="coin__bottom-cointainer">
-
+  {loading ? (
+            <Preloader /> 
+          ): (
           <section className="about-coin-container">
             <h2 className="section-title">about {coinDetails.name}</h2>
             <h3 className="coin__title">what is {coinDetails.name}</h3>
             <p className="coin__description">{parse(`${coinDetails.description?.en}`)}</p>
           </section>
+          )}
+            {loading ? (
+            <Preloader /> 
+          ): (
           <div className="coin-info-wrapper">
             <section className="coin__info">
               <h2 className="section-title"> {coinDetails.name} price stats</h2>
@@ -270,8 +283,9 @@ const optionsChart = {
               </ul>
             </section>
           </div>
+          )}
         </div>
-
+  
         <section className="sections-wrapper">
           <h2 className="card-listing-title">Latest crypto news</h2>
           <div className="card-listings">
@@ -289,6 +303,7 @@ const optionsChart = {
 
               </div>
         </section>
+                 
       </main>
       <Footer />
       </div>
