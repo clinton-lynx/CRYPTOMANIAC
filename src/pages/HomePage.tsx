@@ -12,6 +12,7 @@ import moment from "moment";
 import Preloader from "../components/preloader";
 
 const HomePage = () => {
+  const NEWS_API_KEY: any = process.env.NEWS_API_KEY
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] =useState(true)
   const [trendCoins, setTrendingCoins] = useState([]);
@@ -28,7 +29,7 @@ const HomePage = () => {
   const fetchData = async () => {
     try {
       const response = await axios(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=27&page=1&sparkline=false"
       );
       console.log(response);
       const data = response.data;
@@ -61,7 +62,7 @@ const HomePage = () => {
     },
     headers: {
       'X-BingApis-SDK': 'true',
-      'X-RapidAPI-Key': '31068d680cmshd80b954efa430c5p1d7b8bjsn34ff62722862',
+      'X-RapidAPI-Key': NEWS_API_KEY,
       'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
     }
   };
@@ -103,7 +104,7 @@ const HomePage = () => {
   useEffect(() => {
     fetchData();
     fetchTrendingData();
-    // setSlide(false);
+   
   }, []);
 
 
@@ -185,7 +186,9 @@ const HomePage = () => {
                     name={coin.item?.name}
                     logo={coin.item.large}
                     subtitle={coin.item.symbol}
-                    price={`$${coin.item.price_btc.toFixed(2)}`}
+                    price={`$${millify(coin.item.price_btc , {
+                      precision: 6
+                    })}`}
                     percent={`#${coin.item.market_cap_rank}`}
                   />
                 ))}
@@ -204,11 +207,11 @@ const HomePage = () => {
           <section className="trends">
             <div className="coin-listing-wrapper">
               <h1 className="section-title">today's crypto market</h1>
-              <div className="coin-listing__toogle">toogle view</div>
+              {/* <div className="coin-listing__toogle">toogle view</div> */}
             </div>
-            <nav>
-              <div className="guide__nav-wrapper">
-                <ul className="guide__nav-list">
+            {/* <nav> */}
+              {/* <div className="guide__nav-wrapper"> */}
+                {/* <ul className="guide__nav-list">
                   <li className="guide__nav-list-item">
                     <NavLink className="guide__nav-list-item-link" to="/">
                       All Coins
@@ -236,7 +239,7 @@ const HomePage = () => {
               </div>
             </nav>
             <div className="guide__nav-line"></div>
-            <Outlet />
+            <Outlet /> */}
             {loading ? (
             <Preloader /> 
           ): (

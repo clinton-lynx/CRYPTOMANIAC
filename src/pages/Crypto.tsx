@@ -23,13 +23,14 @@ import {
 } from 'chart.js';
 import moment from "moment";
 import Preloader from "../components/preloader";
-// import { Line } from 'react-chartjs-2';
+
 
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
 
 const Crypto = () => {
+  const NEWS_API_KEY: any = process.env.NEWS_API_KEY
     const [loading, setLoading] = useState(true)
     const [coinDetails, setCoinDetails] : any = useState([]);
     const [chartData, setChartData] : any = useState([]);
@@ -57,22 +58,21 @@ const Crypto = () => {
 
     const filteredNews = news.filter((news : any) => news.name.toLowerCase().includes(search.toLowerCase()));
 
-
     const options = {
-        method: 'GET',
-        url: 'https://bing-news-search1.p.rapidapi.com/news/search',
-        params: {
-            q: 'crypto',
-            count: '4',
-            freshness: 'Day',
-            textFormat: 'Raw',
-            safeSearch: 'Off'
-        },
-        headers: {
-            'X-BingApis-SDK': 'true',
-            'X-RapidAPI-Key': '31068d680cmshd80b954efa430c5p1d7b8bjsn34ff62722862',
-            'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
-        }
+      method: 'GET',
+      url: 'https://bing-news-search1.p.rapidapi.com/news/search',
+      params: {
+        q: 'crypto',
+        count: '4',
+        freshness: 'Day',
+        textFormat: 'Raw',
+        safeSearch: 'Off'
+      },
+      headers: {
+        'X-BingApis-SDK': 'true',
+        'X-RapidAPI-Key': NEWS_API_KEY,
+        'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+      }
     };
 
     useEffect(() => {
