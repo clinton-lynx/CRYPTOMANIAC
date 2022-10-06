@@ -7,13 +7,16 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Table from "../components/Table";
 import Preloader from "../components/preloader";
+import BlogCard from "../components/BlogCard";
+import moment from "moment";
 
 const Dashboard = () => {
-
+  const NEWS_API_KEY: any = process.env.NEWS_API_KEY
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState("");
-  const [slide, setSlide] = useState(false);
+  const [news, setNews] : any = useState([])
+    const [slide, setSlide] = useState(false);
   const currentSlide = slide ? "translateX(1000px)" : "translateX(0px)";
   const bodyRide = slide ? "hidden" : "auto";
   
@@ -57,6 +60,34 @@ const Dashboard = () => {
     console.log("slide werey");
     console.log(slide);
   };
+
+  const filteredNews = news.filter((news : any) => news.name.toLowerCase().includes(search.toLowerCase()));
+
+  const options = {
+    method: 'GET',
+    url: 'https://bing-news-search1.p.rapidapi.com/news/search',
+    params: {
+      q: 'crypto',
+      count: '4',
+      freshness: 'Day',
+      textFormat: 'Raw',
+      safeSearch: 'Off'
+    },
+    headers: {
+      'X-BingApis-SDK': 'true',
+      'X-RapidAPI-Key': NEWS_API_KEY,
+      'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+    }
+  };
+
+  useEffect(() => {
+      axios.request(options).then(function (response) {
+          setNews(response.data.value);
+      }).catch(function (error) {
+          console.error(error);
+      });
+
+  }, [])
     
   return (
     <>
@@ -64,17 +95,7 @@ const Dashboard = () => {
           handler={handleChange}
           slideHandler={mobileNavSlide}
       />
-      {/* {filteredCoins.map((coin: any) => (
-        <CryptoCard
-        coinId={coin.id} 
-          name={coin.name}
-          logo={coin.image}
-          subtitle={coin.symbol}
-          price={`$${coin.current_price}`}
-          percent={`${coin.market_cap_change_percentage_24h}%`}
-        />
-      ))} */}
-<div className="container-wrapper">
+      <div className="container-wrapper">
 <ul className="mobile-menu" >
         <li className="mobile-menu-list-item-wrapper">
             <NavLink to="/" className="mobile-menu-list-item">
@@ -159,6 +180,33 @@ const Dashboard = () => {
         </div>
     </div>
            )}
+            <section className="sections-wrapper">
+                        <h2 className="card-listing-title">Latest crypto news</h2>
+                        <div className="card-listings">
+                            {
+                            filteredNews.map((news : any) => (
+                                <BlogCard cardUrl={
+                                        news.url
+                                    }
+                                    source={
+                                        news.provider[0].name
+                                    }
+                                    title={
+                                        news.name
+                                    }
+                                    image={
+                                        news.image ?. thumbnail ?. contentUrl
+                                    }
+                                    description={
+                                        news.description
+                                    }
+                                    releaseTime={
+                                        moment(news.datePublished, "YYYYMMDD").fromNow()
+                                    }/>
+                            ))
+                        } </div>
+                    </section>
+
         </main>
 
     <Footer/>
