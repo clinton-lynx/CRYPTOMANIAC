@@ -32,7 +32,7 @@ const NewsListing = () => {
         setSearch(e.target.value);
     };
 
-
+// This is the connection string
     const options = {
         method: 'GET',
         url: 'https://bing-news-search1.p.rapidapi.com/news/search',
@@ -46,7 +46,6 @@ const NewsListing = () => {
         headers: {
             'X-BingApis-SDK': 'true',
             'X-RapidAPI-Key': NEWS_API_KEY,
-            // 'X-RapidAPI-Key': NEWS_API_KEY,
             'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
         }
     };
