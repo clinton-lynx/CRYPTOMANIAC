@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/test"
-  to = "/index.html"
+  to = "/"
   status = 301
   force = true
 
