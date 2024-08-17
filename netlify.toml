@@ -2,6 +2,5 @@
   from = "/test"
   to = "/index.html"
   status = 301
-  force = false
-  query = {path = ":path"}
-  conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
+  force = true
+
