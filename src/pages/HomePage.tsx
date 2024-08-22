@@ -145,12 +145,19 @@ console.log(filteredCoins);
   console.log(search);
   
 
-  const [currentPage, setCurrentPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [activePage, setActivePage] = useState(1);
   const postPerPage = 20;
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
   const newCoins = filteredCoins.slice( indexOfFirstPost , indexOfLastPost );
 
+  const handlePaginate = (number: any):void=>{
+    setActivePage(number)
+    setCurrentPage(number);
+    
+  }
+  console.log(activePage);
   return (
     <>
       <div className="header-wrapper">
@@ -271,7 +278,11 @@ console.log(filteredCoins);
             </div>
           )}
           <div className="pagination-wrapper">
-            <Pagination />
+            <Pagination 
+            paginate={handlePaginate}  
+            activePage={activePage} 
+            currentPage={currentPage}
+            />
           </div>
           </section>
           <div className="bottom-section">
