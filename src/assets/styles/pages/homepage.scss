@@ -2,7 +2,6 @@
 
 
 
-
 .main{
   background-color: #1c122b;
   color:#fff;
@@ -22,7 +21,7 @@
 
  .mobile-menu{
         position:absolute;
-        background-color:$dark-blue;
+        background-color:$background-dark;
         transform: translateX(100000px);
         transition: all .4s ease-in-out;
         padding:1.5rem .875rem;

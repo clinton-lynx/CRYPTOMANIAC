@@ -11,6 +11,7 @@ import millify from "millify";
 import moment from "moment";
 import Preloader from "../components/preloader";
 import Pagination from "../components/Pagination";
+import { useTheme } from "../App";
 
 const HomePage = () => {
   const NEWS_API_KEY: any = process.env.NEWS_API_KEY
@@ -158,9 +159,16 @@ console.log(filteredCoins);
     
   }
   console.log(activePage);
+  // interface ThemeContextProps {
+  //   // Define your global state properties here
+  //   theme: string;
+  //   toggleTheme: React.Dispatch<React.SetStateAction<string>>;
+  // }
+
+  const {theme, toggleTheme} = useTheme();
   return (
     <>
-      <div className="header-wrapper">
+      <div className={`header-wrapper ${theme}`}>
 
         <Header
           handler={handleChange}

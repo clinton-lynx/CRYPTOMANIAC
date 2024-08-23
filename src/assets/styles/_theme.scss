@@ -1,0 +1,10 @@
+// _theme.scss
+@mixin themeMixin($theme-name) {
+    @if $theme-name == 'dark' {
+      background-color: $background-dark;
+      color: $text-dark;
+    } @else if $theme-name == 'light' {
+      background-color: $background-light;
+      color: $text-light;
+    }
+  }

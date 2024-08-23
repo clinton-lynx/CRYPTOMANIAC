@@ -12,6 +12,7 @@ import millify from 'millify';
 import {Link, NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
 import Preloader from './preloader';
+import { useTheme } from '../App';
 
 const Header = ({handler, slideHandler, searchSideEffect, blur} : any) => {
 
@@ -34,10 +35,10 @@ const Header = ({handler, slideHandler, searchSideEffect, blur} : any) => {
     useEffect(() => {
         fetchData();
     }, [])
-
+const {theme, toggleTheme} = useTheme();
 
     return (
-        <header className="header">
+        <header className={`header ${theme}`}>
             <div className="nav-wrapper">
                 <div className="nav-left">
                     <Link to='/' className="nav-logo">

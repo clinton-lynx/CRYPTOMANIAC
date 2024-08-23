@@ -9,11 +9,30 @@ import NFTs from './components/NFTs';
 import RecentlyAdded from './components/RecentlyAdded';
 import Crypto from './pages/Crypto';
 import Dashboard from './pages/dashboard';
+import { createContext, useContext, useState } from 'react';
 
-
+interface ThemeContextProps {
+    // Define your global state properties here
+    theme: string;
+    toggleTheme: React.Dispatch<React.SetStateAction<string>>;
+  }
+const ThemeContext = createContext<ThemeContextProps | null>(null);
+ 
+// export const useTheme = useContext(ThemeContext);
+export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+      throw new Error('useTheme must be used within a ThemeProvider');
+    }
+    return context;
+  };
+  
 function App() {
+    const [theme, setTheme] = useState('light');
+    const toggleTheme = () =>{setTheme((prevTheme)=>(prevTheme === "light" ? "light" : "dark"))}
     return (
 
+<ThemeContext.Provider value={{theme, toggleTheme}} >
 
         <BrowserRouter>
             <Routes>
@@ -40,6 +59,7 @@ function App() {
 
             </Routes>
         </BrowserRouter>
+</ThemeContext.Provider>
 
     );
 }
