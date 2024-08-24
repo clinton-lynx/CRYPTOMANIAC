@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import '../assets/styles/components/cryptocard.scss';
+import { useTheme } from '../App';
 
 
 const CryptoCard = ({
@@ -11,12 +12,14 @@ const CryptoCard = ({
     subtitle,
     percent
 } : any) => {
+
+    const {theme, toggleTheme} = useTheme();
     return (
         <>
             <Link to={
                     `/all-coins/${coinId}`
                 }
-                className="crypto-card">
+                className={`${theme} crypto-card`}>
                 <div className="crypto-card__left">
                     <div className="crypto-icon-wrapper">
                         <img src={logo}

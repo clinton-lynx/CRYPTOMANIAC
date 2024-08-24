@@ -23,6 +23,7 @@ import {
 } from 'chart.js';
 import moment from "moment";
 import Preloader from "../components/preloader";
+import { useTheme } from "../App";
 
 
 
@@ -107,6 +108,8 @@ const Crypto = () => {
                 ),
                 fill: true,
                 backgroundColor: 'rgba(17, 153, 250, 0.05)',
+                // backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                // backgroundColor: #fff,
                 // borderColor: 'rgba(17, 153, 250, 0.05)'
                 borderColor: 'rgba(4,217,255,1.00) '
             }
@@ -159,7 +162,7 @@ const Crypto = () => {
     console.log(chartData);
     const coinDetailsDev = coinDetails
 
-
+const {theme} = useTheme();
     return (
         <>
             <Header slideHandler={mobileNavSlide}/>
@@ -181,11 +184,11 @@ const Crypto = () => {
                         </NavLink>
                     </li>
                 </ul>
-                <main className="main">
+                <main className={`${theme} main`}>
                     {
                     loading ? (
                         <Preloader/>) : (
-                        <div className="coin-wrapper">
+                        <div className={`${theme} coin-wrapper `}>
                             <div className="coin-chart-section">
                                 <div className="coin-name-wrapper">
                                     <div className="coin-logo-wrapper">
@@ -215,7 +218,7 @@ const Crypto = () => {
                                         }%
                                             <span className="time">[24H]</span>
                                         </span>
-                                        <div className="chart-wrapper">
+                                        <div className={`${theme} chart-wrapper`}>
                                             <span className="chart-title">
                                                 {
                                                 coinDetails.name
@@ -234,7 +237,7 @@ const Crypto = () => {
                     )
                 }
 
-                    <div className="coin__bottom-cointainer">
+                    <div className={`${theme} coin__bottom-cointainer`}>
                         {
                         loading ? (
                             <Preloader/>) : (

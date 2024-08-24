@@ -195,7 +195,7 @@ console.log(filteredCoins);
             </NavLink>
           </li>
         </ul>
-      <main className="main">
+      <main className={`main ${theme}`}>
        
         <div className="sections-wrapper">
         {loading ? (

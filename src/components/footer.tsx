@@ -1,11 +1,13 @@
 import React from "react"
 import {MainLogo} from "../assets/icons/icons"
 import "../assets/styles/components/footer.scss"
+import { useTheme } from "../App";
 
 const Footer = () => {
+    const {theme, toggleTheme} = useTheme();
     return (
         <div>
-            <footer className="main-footer">
+            <footer className={`${theme} main-footer`}>
                 <div className="footer-top">
                     <div className="top-left">
 

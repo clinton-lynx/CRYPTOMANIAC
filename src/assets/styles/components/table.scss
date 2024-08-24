@@ -32,9 +32,9 @@ $green-positive: greenyellow;
             width: 100%;
             overflow-x: auto;
             border-left: 0px;
-            // border-right: 0px;
-            // border-radius: 0px;
-            // margin-top: -1px;
+            &.light{
+                    color: #0f172a;
+            }
 
             .assets__table {
                 width: 100%;
@@ -93,6 +93,10 @@ $green-positive: greenyellow;
                     .assets__tableBody-row {
   background-color: rgba(17, 153, 250, 0.05);
                         user-select: none;
+                        &.light{
+                            background-color: #fff;
+                            color: #0f172a;
+                        }
 
                         &:hover {
                             background: rgba(50,53,61,0.02);
@@ -154,42 +158,6 @@ $green-positive: greenyellow;
                                 padding-left: 24px;
                             }
                         }    
-                    }
-
-                    .assets__rates {
-                        padding: 14px 48px 14px 0px;
-                        border-top: 1px solid rgba(91,97,110,0.2);
-                        cursor: default;
-                        width: 232px;
-
-                        .assets-rate__InnerWrapper {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: flex-start;
-
-                            .assets__price {
-                                text-align: left;
-                                line-height: 1.3;
-                                color: $white;
-                                font-weight: 400;
-                                font-size: 18px;
-                                font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-                                @include mobile {
-                                    text-align: right;
-                                }
-                            }
-
-                           
-
-                            @include tablet {
-                                flex-direction: column;
-                                align-items: flex-end;
-                            }
-                        }
-
-                        @include tablet {
-                            padding: 14px 20px 14px 0px;
-                        }
                     }
 
                     .assets-price__change {
@@ -288,6 +256,45 @@ $green-positive: greenyellow;
 }
 
 
+
+.assets__rates {
+    padding: 14px 48px 14px 0px;
+    border-top: 1px solid rgba(91,97,110,0.2);
+    cursor: default;
+    width: 232px;
+
+    .assets-rate__InnerWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+      
+       
+
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+
+    @include tablet {
+        padding: 14px 20px 14px 0px;
+    }
+}
+
+.assets__price {
+    text-align: left;
+    line-height: 1.3;
+    color: $white;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    @include mobile {
+        text-align: right;
+    }
+}
+
+
 .assets__name {
     padding-left: .4rem;
     display: inline-flex;
@@ -304,6 +311,9 @@ $green-positive: greenyellow;
         display: inline;
         font-weight: 400;
         font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        &.light{
+            color: #000;
+        }
     }
 
     .assets__nameAbbreviation {
@@ -320,6 +330,9 @@ $green-positive: greenyellow;
         align-items: flex-start;
     }
 }
+
+
+.light 
 
 .price__percentage {
     display: none;
@@ -340,4 +353,8 @@ $green-positive: greenyellow;
     padding-left: .45rem;
     width: 33px;
     display: inline;
+}
+
+.light .assets__nameContent,.light .assets__nameAbbreviation, .light .assets__rates,.light .assets__price {
+    color: #000;
 }

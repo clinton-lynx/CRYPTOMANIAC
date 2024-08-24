@@ -4,6 +4,10 @@ footer.main-footer {
     background: #0B1426;
     padding-bottom: 0px;
     color: white;
+    &.light{
+      background-color: #f7f9fc;
+      color: #000;
+    }
     .footer-top {
       display: flex;
       align-items: flex-start;

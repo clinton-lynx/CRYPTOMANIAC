@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import '../assets/styles/components/table.scss';
+import { useTheme } from '../App';
 
 type tableProps = {
     percent: string,
@@ -21,9 +22,10 @@ const Table = ({
     subtitle,
     percent
 } : tableProps) => {
+    const {theme, toggleTheme} = useTheme();
     return (
         <> 
-            <tr className="assets__tableBody-row">
+            <tr className={`${theme} assets__tableBody-row`}>
                 <td className="assets__tableBody-Data">
                     <span className="assets__tableBody-span">
                         {coinCap} </span>

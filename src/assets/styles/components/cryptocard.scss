@@ -15,7 +15,14 @@
   background-color: rgba(17, 153, 250, 0.05);
   font-weight: 500;
   cursor: pointer;
+  &.light{
+    color: #0f172A;
+    border: 3px solid #ccc;
+    background-color: #fff;
+  }
 }
+
+
 
 .crypto-name-wrapper {
   margin-top: 12px;
