@@ -82,10 +82,9 @@ const {theme, toggleTheme} = useTheme();
                         </form>
                     </div>
 
-                    <button className="nav-right__theme-toogle" onClick={toggleTheme} >
-                        <LightMode/>
-                        <DarkMode />
-                    </button>
+                    <button className="nav-right__theme-toggle" onClick={toggleTheme}>
+    {theme === "dark" ? <DarkMode /> : <LightMode />}
+</button>
                     <div className="nav-right__search-icon-wrapper">
                         <MobileSearch/>
                     </div>
