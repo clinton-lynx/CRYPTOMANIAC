@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import Header from "../components/ArticleHeader";
+// import Header from "../components/Header";
 import "../assets/styles/pages/coin.scss";
 import Footer from "../components/footer";
 import {NavLink, useParams} from "react-router-dom";

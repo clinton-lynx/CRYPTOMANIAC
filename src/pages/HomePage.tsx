@@ -159,11 +159,7 @@ console.log(filteredCoins);
     
   }
   console.log(activePage);
-  // interface ThemeContextProps {
-  //   // Define your global state properties here
-  //   theme: string;
-  //   toggleTheme: React.Dispatch<React.SetStateAction<string>>;
-  // }
+
 
   const {theme, toggleTheme} = useTheme();
   return (

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {
+    DarkMode,
     DropDown,
     Hamburger,
     LightMode,
@@ -32,7 +33,7 @@ const Header = ({handler, slideHandler, searchSideEffect, blur} : any) => {
     useEffect(() => {
         fetchData();
     }, [])
-    const {theme} = useTheme();
+    const {theme, toggleTheme} = useTheme();
 
     return (
         <header className={`${theme} header`}>
@@ -63,9 +64,9 @@ const Header = ({handler, slideHandler, searchSideEffect, blur} : any) => {
                 <div className="nav-right">
 
 
-                    <div className="nav-right__theme-toogle">
-                        <LightMode/>
-                    </div>
+                <button className="nav-right__theme-toggle" onClick={toggleTheme}>
+    {theme === "light" ? <DarkMode /> : <LightMode />}
+</button>
                     <div className="nav-right__search-icon-wrapper">
                         <MobileSearch/>
                     </div>
