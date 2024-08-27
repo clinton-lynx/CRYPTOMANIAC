@@ -162,7 +162,7 @@ const Crypto = () => {
     console.log(chartData);
     const coinDetailsDev = coinDetails
 
-const {theme} = useTheme();
+const {theme, toggleTheme} = useTheme();
     return (
         <>
             <Header slideHandler={mobileNavSlide}/>
