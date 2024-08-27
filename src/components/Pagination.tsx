@@ -65,7 +65,7 @@ const {theme, toggleTheme} = useTheme();
          
           <a
             className={`flex w-10 h-10 mr-1 justify-center items-center rounded-full border ${
-              currentPage <:5
+              currentPage < 5
                 ? (theme === "light" 
                     ? "bg-[#1199fa0d] text-white hover:bg-[#1199fa26]" 
                     : "bg-[#1199fa0d] text-white hover:bg-[#1199fa26]")
