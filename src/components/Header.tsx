@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {
+    DarkMode,
     DropDown,
     Hamburger,
     LightMode,
@@ -13,6 +14,7 @@ import {Link, NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
 import Preloader from './preloader';
 import { useTheme } from '../App';
+import ToggleTheme from './ToggleTheme';
 
 const Header = ({handler, slideHandler, searchSideEffect, blur} : any) => {
 
@@ -63,6 +65,9 @@ const {theme, toggleTheme} = useTheme();
                                 {/* <li className="market-details-list-item-wrapper"><NavLink to="/about">about</NavLink></li> */} </ul>
                         </div>
                     </nav>
+                    <div className="">
+                     {/* <ToggleTheme /> */}
+                    </div>
                 </div>
                 <div className="nav-right">
                     <div className='nav-right__form-wrapper'>
@@ -77,9 +82,10 @@ const {theme, toggleTheme} = useTheme();
                         </form>
                     </div>
 
-                    <div className="nav-right__theme-toogle">
+                    <button className="nav-right__theme-toogle" onClick={toggleTheme} >
                         <LightMode/>
-                    </div>
+                        <DarkMode />
+                    </button>
                     <div className="nav-right__search-icon-wrapper">
                         <MobileSearch/>
                     </div>

@@ -10,12 +10,13 @@ import {
 } from '../assets/icons/icons';
 import {Link, NavLink} from 'react-router-dom';
 import '../assets/styles/components/header.scss';
+import { useTheme } from '../App';
 
 const Header = ({handler, slideHandler, searchSideEffect, blur} : any) => {
-
+const {theme}  = useTheme()
 
     return (
-        <header className="header">
+        <header className={`${theme} header`}>
             <div className="nav-wrapper">
                 <div className="nav-left">
                     <Link to='/' className="nav-logo">

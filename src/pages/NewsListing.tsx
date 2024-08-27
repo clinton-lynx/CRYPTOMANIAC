@@ -7,6 +7,7 @@ import '../assets/styles/pages/news-listing.scss'
 import {NavLink} from 'react-router-dom'
 import moment from 'moment'
 import Preloader from '../components/preloader'
+import { useTheme } from '../App'
 
 const NewsListing = () => {
   const NEWS_API_KEY: any = process.env.NEWS_API_KEY
@@ -65,7 +66,7 @@ const NewsListing = () => {
 
 
     const filteredNews = news.filter((news : any) => news.name.toLowerCase().includes(search.toLowerCase()));
-
+    const {theme} = useTheme()
     return (
         <>
             <Header handler={handleChange}
@@ -90,7 +91,7 @@ const NewsListing = () => {
                         </li>
                     </ul>
                 </div>
-                <main className="main">
+                <main className={`${theme} main`}>
                     <section className="sections-wrapper">
                         <h3 className="card-listing-title">browse our blog</h3>
                         {

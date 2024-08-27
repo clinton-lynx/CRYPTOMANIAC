@@ -14,7 +14,8 @@ import { createContext, useContext, useState } from 'react';
 interface ThemeContextProps {
     // Define your global state properties here
     theme: string;
-    toggleTheme: React.Dispatch<React.SetStateAction<string>>;
+    // toggleTheme: React.Dispatch<React.SetStateAction<string>>;/
+    toggleTheme: (event: React.MouseEvent<HTMLButtonElement>) => void;
   }
 const ThemeContext = createContext<ThemeContextProps | null>(null);
  
@@ -28,8 +29,8 @@ export const useTheme = () => {
   };
   
 function App() {
-    const [theme, setTheme] = useState('light');
-    const toggleTheme = () =>{setTheme((prevTheme)=>(prevTheme === "light" ? "light" : "dark"))}
+    const [theme, setTheme] = useState('dark');
+    const toggleTheme = () =>{setTheme((prevTheme)=>(prevTheme === "dark" ? "light" : "dark"))}
     return (
 
 <ThemeContext.Provider value={{theme, toggleTheme}} >
@@ -46,9 +47,8 @@ function App() {
                         element={<AllCoins/>}/>
                     <Route path='NFTs'
                         element={<NFTs/>}/>
-
                     <Route path='recently-added'
-                        element={<RecentlyAdded/>}/>
+                        element={<RecentlyAdded/>}/> 
                 </Route>
                 <Route path='/news-listing'
                     element={<NewsListing/>}/>

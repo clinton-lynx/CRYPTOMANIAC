@@ -303,7 +303,7 @@
     background: rgba(255, 255, 255, 0.16);
   }
   @include breakpoint-down(128000px) {
-    display: none;
+    // display: none;
   }
 }
 .nav-right__menu-wrapper {
@@ -385,4 +385,14 @@ hr {
     cursor: pointer;
     color: #fff;
   }
+}
+
+.light{
+
+  .crptomaniac-logo{
+svg :nth-child(2){
+fill:  $background-dark !important;
+ }
+
+}
 }

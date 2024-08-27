@@ -63,8 +63,8 @@ const Table = ({
                         <div className="assets-rate__InnerWrapper">
                             <span className="assets__price">
                                 {price} </span>
-                            <span className="price__percentage">
-                                {percent} </span>
+                            {/* <span className="price__percentage">
+                                {percent} </span> */}
                         </div>
                     </Link>
                 </td>
