@@ -138,10 +138,8 @@ const HomePage = () => {
     console.log("now on blur");
   };
 
-  const filteredCoins = coins.filter((coin: any) =>
-    coin.name.toLowerCase().includes(search.toLowerCase())
-);
-console.log(filteredCoins);
+
+// console.log(filteredCoins);
   console.log(coins);
   console.log(search);
   
@@ -151,8 +149,10 @@ console.log(filteredCoins);
   const postPerPage = 20;
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
-  const newCoins = filteredCoins.slice( indexOfFirstPost , indexOfLastPost );
-
+  const newCoins = coins.slice( indexOfFirstPost , indexOfLastPost );
+  const filteredCoins = newCoins.filter((coin: any) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+);
   const handlePaginate = (number: any):void=>{
     setActivePage(number)
     setCurrentPage(number);
@@ -265,7 +265,7 @@ console.log(filteredCoins);
             <Preloader /> 
           ): (
             <div className="crypto-card-wrapper--today">
-              {newCoins.map((coin: any) => (
+              {filteredCoins.map((coin: any) => (
                 <CryptoCard
                   coinId={coin.id}
                   name={coin.name}
